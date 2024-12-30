@@ -15,6 +15,23 @@ export const BLOG_CATEGORIES: {
   },
 ];
 
+export const FirstYear_CATEGORIES: {
+  title: string;
+  slug: "physics" | "chemistry";
+  description: string;
+}[] = [
+  {
+    title: "Physics Cycle",
+    slug: "physics",
+    description: "Access to the latest physics cycle papers",
+  },
+  {
+    title: "Chemistry Cycle",
+    slug: "chemistry",
+    description: "Access to the latest chemistry cycle papers",
+  },
+];
+
 export const BLOG_AUTHORS = {
   mickasmt: {
     name: "mickasmt",
