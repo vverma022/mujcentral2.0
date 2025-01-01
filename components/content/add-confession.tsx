@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import {
@@ -24,7 +26,7 @@ export default function AddConfessionButton() {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button className="w-full">Add Your Confession</Button>
+        <Button className="w-full md:w-auto">Add Your Confession</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
