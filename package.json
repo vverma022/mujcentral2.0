@@ -55,6 +55,7 @@
     "@typescript-eslint/parser": "^8.18.2",
     "@vercel/analytics": "^1.4.1",
     "@vercel/og": "^0.6.4",
+    "axios": "^1.7.9",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.4",

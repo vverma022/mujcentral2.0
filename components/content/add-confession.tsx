@@ -13,16 +13,31 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Icons } from "@/components/shared/icons"
+import axios from 'axios'
 
 export default function AddConfessionButton() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [Formdata, SetFormData] = useState({name: '', confession: ''})
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted')
-    setIsOpen(false)
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = event.target
+    SetFormData({
+      ...Formdata,
+      [name]: value,
+    })
   }
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post('/api/confess/add', Formdata);
+      console.log('Confession added:', response.data);
+      setIsOpen(false);
+      SetFormData({ name: '', confession: '' }); 
+    } catch (error) {
+      console.error('Error submitting confession:', error);
+    }
+  };
+
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -38,14 +53,14 @@ export default function AddConfessionButton() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="confession">Your Confession</Label>
-            <Textarea id="confession" placeholder="Type your confession here..." required />
+            <Textarea id="confession" placeholder="Type your confession here..." onChange={handleChange} required />
             <p className="text-xs text-muted-foreground text-center">
               please undestand that there are certain boundries to things
             </p>
           </div>
           <div className="space-y-2">
             <Label htmlFor="name">Name</Label>
-            <Input id="name" placeholder="Your Name" required />
+            <Input id="name" placeholder="Your Name" onChange={handleChange} required />
             <p className="text-xs text-muted-foreground text-center">
              provided name will be hashed and securely stored in our database for security reasons.
             </p>
