@@ -7,14 +7,12 @@ const confessions = [
     image: '/placeholder.svg?height=150&width=250',
     confession: "I secretly love pineapple on pizza.",
     username: "PizzaLover123",
-    avatar: '/placeholder.svg?height=40&width=40',
   },
   {
     id: 2,
     image: '/placeholder.svg?height=150&width=250',
     confession: "I've never seen Star Wars.",
     username: "MovieBuff99",
-    avatar: '/placeholder.svg?height=40&width=40',
   },
 ]
 
@@ -22,7 +20,7 @@ export default function ConfessionList() {
   return (
     <MaxWidthWrapper className="py-6 md:pb-8 md:pt-10">
   <div className="max-w-screen-sm">
-    <h1 className="font-heading text-3xl md:text-4xl border-b pb-2">
+    <h1 className="font-heading text-3xl md:text-4xl pb-2">
       Confessions
     </h1>
   </div>

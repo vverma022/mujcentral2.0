@@ -39,15 +39,17 @@ export default function AddConfessionButton() {
           <div className="space-y-2">
             <Label htmlFor="confession">Your Confession</Label>
             <Textarea id="confession" placeholder="Type your confession here..." required />
+            <p className="text-xs text-muted-foreground text-center">
+              please undestand that there are certain boundries to things
+            </p>
           </div>
           <div className="space-y-2">
-            <Label htmlFor="image">Image URL</Label>
-            <Input id="image" type="url" placeholder="https://example.com/image.jpg" required />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="username">Username</Label>
-            <Input id="username" placeholder="Your username" required />
-          </div>
+            <Label htmlFor="name">Name</Label>
+            <Input id="name" placeholder="Your Name" required />
+            <p className="text-xs text-muted-foreground text-center">
+             provided name will be hashed and securely stored in our database for security reasons.
+            </p>
+           </div>
           <Button type="submit" className="w-full">Submit Confession</Button>
         </form>
       </DialogContent>
