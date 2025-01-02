@@ -12,6 +12,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
+import { Icons } from "@/components/shared/icons"
 
 export default function AddConfessionButton() {
   const [isOpen, setIsOpen] = useState(false)
@@ -26,11 +27,13 @@ export default function AddConfessionButton() {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button className="w-full md:w-auto">Add Your Confession</Button>
+        <Button size="lg" className="px-8">
+          Confess
+          </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Add New Confession</DialogTitle>
+          <DialogTitle className='text-gradient_indigo-purple text-center'>Add New Confession</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">

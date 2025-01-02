@@ -1,24 +1,50 @@
 import Image from 'next/image'
 import ConfessionList from '@/components/content/confession-list'
 import AddConfessionButton from '@/components/content/add-confession'
+import Poster from '@/public/_static/avatars/confess.jpg'
+import { InfoLdg } from "@/types";
+import { cn } from "@/lib/utils";
+import { Icons } from "@/components/shared/icons";
+import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
+import { ConfessHeaderLayout } from '@/components/content/confession-header';
+
+
+
 
 export default function ConfessionsPage() {
   return (
-    <div className="container mx-auto px-4 py-6">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-        <div className="mb-4 md:mb-0">
-          <div className="flex items-center">
-            <Image src="/placeholder.svg?height=50&width=50" alt="MUJ CONFESS Logo" width={50} height={50} />
-            <h1 className="font-bold ml-2 font-heading text-3xl md:text-4xl">MUJ CONFESS</h1>
-          </div>
-          <p className="mt-3.5 text-base text-muted-foreground md:text-lg">
-            Share your secrets, stories, and confessions anonymously.
-          </p>
-        </div>
-        <AddConfessionButton />
+    <>
+        <ConfessHeaderLayout />
+  <div className='py-8'>
+  <MaxWidthWrapper className="grid gap-10 px-2.5 lg:grid-cols-2 lg:items-center lg:px-7">
+    {/* Image Section */}
+    <div className={cn("overflow-hidden rounded-xl border lg:-m-4")}>
+      <div className="aspect-video">
+        <Image
+          className="size-full object-cover object-center"
+          src={Poster}
+          alt="People sharing their confessions"
+          width={1000}
+          height={500}
+          priority={true}
+        />
       </div>
-      <ConfessionList />
     </div>
+    <div>
+      <h2 className="font-heading text-2xl text-foreground md:text-4xl lg:text-[40px]">
+      Your Voice, Your Story, Your Confession
+      </h2>
+      <dl className="text-muted-foreground mt-4">
+      Express yourself freely and anonymously. Share your thoughts, experiences, and confessions with the MUJ community
+      </dl>
+      <div className='mt-4'>
+      <AddConfessionButton />
+      </div>
+    </div>
+  </MaxWidthWrapper>
+</div>
+    <ConfessionList />
+    </>
   )
 }
 
