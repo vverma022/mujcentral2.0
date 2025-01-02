@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Share2 } from 'lucide-react'
+import ShareButton from '../shared/sharebutton'
 
 interface ConfessionPostProps {
   confession: string
@@ -25,9 +26,7 @@ export default function ConfessionPost({ confession, username}: ConfessionPostPr
           <div className="flex items-center space-x-2">
             <span className="text-xs font-medium">{username}</span>
           </div>
-          <Button variant="ghost" size="sm" onClick={handleShare}>
-            <Share2 className="h-4 w-4" />
-          </Button>
+           <ShareButton />
         </div>
       </CardContent>
     </Card>
