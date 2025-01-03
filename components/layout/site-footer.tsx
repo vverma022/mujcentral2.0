@@ -1,9 +1,9 @@
 import * as React from "react";
 import Link from "next/link";
-
-import { footerLinks, siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "@/components/layout/mode-toggle";
+import  Logo  from "@/public/_static/favicons/apple-touch-icon.png";
+import Image from "next/image";
 
 
 
@@ -11,8 +11,25 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
     <footer className={cn("border-t", className)}>
       <div>
-        <div></div>
-
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex items-center mb-4 md:mb-0">
+          <Image src={Logo} alt="MUJ Central Logo" className="h-8 w-8 mr-3" />
+            <span className="font-urban text-xl font-bold">MUJ Central 2.0</span>
+          </div>
+          <nav className="flex flex-wrap justify-center md:justify-end space-x-6">
+            <Link href="/aboutus" className="text-sm text-muted-foreground">
+              About Us
+            </Link>
+            <Link href="/terms" className="text-sm text-muted-foreground">
+              Terms
+            </Link>
+            <Link href="/privacy" className="text-sm text-muted-foreground">
+              Privacy
+            </Link>
+          </nav>
+        </div>
+      </div>
       </div>
       <div className="border-t py-4">
         <div className="container flex max-w-6xl items-center justify-between">
