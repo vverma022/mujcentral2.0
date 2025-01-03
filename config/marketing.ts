@@ -11,7 +11,7 @@ export const marketingConfig: MarketingConfig = {
       href: "/#papers",
     },
     {
-      title: "MUJ_Confess",
+      title: "Confess",
       href: "/confess",
     },
   ],

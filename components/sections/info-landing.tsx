@@ -4,6 +4,7 @@ import { InfoLdg } from "@/types";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/shared/icons";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
+import Poster from "@/public/_static/blog/studying.svg";
 
 interface InfoLandingProps {
   data: InfoLdg;
@@ -49,12 +50,13 @@ export default function InfoLanding({
         >
           <div className="aspect-video">
             <Image
-              className="size-full object-cover object-center"
-              src={data.image}
+              className="size-full object-center"
+              src={Poster}
               alt={data.title}
               width={1000}
               height={500}
               priority={true}
+              style={{ backgroundColor: "white" }}
             />
           </div>
         </div>

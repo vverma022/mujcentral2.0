@@ -1,5 +1,6 @@
+import { UnimatesHeaderLayout } from "@/components/unimates/unimates-header";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
-import { ConfessHeaderLayout } from '@/components/content/confession-header';
+import { UnimatesPoster } from "@/components/unimates/unimates-poster";
 
 export default function BlogLayout({
   children,
@@ -8,7 +9,8 @@ export default function BlogLayout({
 }) {
   return (
     <>
-     <ConfessHeaderLayout />
+        <UnimatesHeaderLayout />
+        <UnimatesPoster />
       <MaxWidthWrapper className="pb-16">{children}</MaxWidthWrapper>
     </>
   );
