@@ -8,7 +8,7 @@ export const marketingConfig: MarketingConfig = {
     },
     {
       title: "Papers",
-      href: "/blog",
+      href: "/#papers",
     },
     {
       title: "MUJ_Confess",

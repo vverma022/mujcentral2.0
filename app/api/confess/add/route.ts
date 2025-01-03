@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
+import { uniqueNamesGenerator, Config, adjectives, colors, animals } from 'unique-names-generator';
 
 const prisma = new PrismaClient();
 
@@ -13,11 +14,17 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Name and confession are required.' }, { status: 400 });
     }
 
+    
+    const username = uniqueNamesGenerator({
+      dictionaries: [adjectives, animals,colors ], 
+      separator: '_', 
+    });
+
     const newConfession = await prisma.confession.create({
       data: {
         name,
         confession,
-        username: crypto.randomUUID(), 
+        username,
       },
     });
 

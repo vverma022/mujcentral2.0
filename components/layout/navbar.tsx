@@ -48,7 +48,7 @@ export function NavBar({ scroll = false }: NavBarProps) {
               {siteConfig.name}
             </span>
           </Link>
-          {/* {links && links.length > 0 ? (
+          {links && links.length > 0 ? (
             <nav className="hidden gap-6 md:flex">
               {links.map((item, index) => (
                 <Link
@@ -67,7 +67,7 @@ export function NavBar({ scroll = false }: NavBarProps) {
                 </Link>
               ))}
             </nav>
-          ) : null} */}
+          ) : null}
         </div>
       </MaxWidthWrapper>
     </header>

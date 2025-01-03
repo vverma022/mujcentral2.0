@@ -8,7 +8,7 @@ import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 
 export default function Features() {
   return (
-    <section>
+    <section id="papers" >
       <div className="pb-6 pt-28">
         <MaxWidthWrapper>
           <HeaderSection
