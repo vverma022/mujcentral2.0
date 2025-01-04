@@ -1,6 +1,9 @@
+"use client"
+
 import Image from 'next/image'
 import Poster from '@/public/_static/illustrations/romantic-dinner.svg'
 import MaxWidthWrapper from '@/components/shared/max-width-wrapper'
+import { AddProfileButton } from './add-profile'
 
 
 export function UnimatesPoster() {
@@ -29,6 +32,7 @@ export function UnimatesPoster() {
              Unimates helps you find people from your city coming to your university. So you can connect with them before you even reach the campus.
             </dl>
             <div className='mt-4'>
+              <AddProfileButton />
             </div>
           </div>
         </MaxWidthWrapper>
