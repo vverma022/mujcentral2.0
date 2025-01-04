@@ -8,7 +8,7 @@ export function PapersHeaderLayout() {
             Past Year Papers
           </h1>
           <p className="mt-3.5 text-base text-muted-foreground md:text-lg">
-             Help your preparation with past year papers sourced from you guys.
+             Help your preparation with past year papers sourced from the community.
           </p>
         </div>
     </MaxWidthWrapper>
