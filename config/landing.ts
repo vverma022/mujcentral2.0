@@ -32,22 +32,22 @@ export const features: FeatureLdg[] = [
     title: "First Year Papers",
     description:
       "Papers for the first year students of Manipal University Jaipur for both physics and chemistry cycles.",
-    link: "/",
-    icon: "nextjs",
+    link: "/pyq/first-year",
+    icon: "college",
   },
   {
     title: "Second Year Papers",
     description:
       "Papers for the second year students of Manipal University Jaipur for various courses.",
-    link: "/",
-    icon: "google",
+    link: "/pyq/second-year",
+    icon: "college",
   },
   {
     title: "Third Year Papers",
     description:
       "Papers for the third year students of Manipal University Jaipur for various courses.",
-    link: "/",
-    icon: "gitHub",
+    link: "/pyq/third-year",
+    icon: "college",
   },
 ];
 

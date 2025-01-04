@@ -2,8 +2,9 @@ import * as React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "@/components/layout/mode-toggle";
-import  Logo  from "@/public/_static/favicons/apple-touch-icon.png";
+import  Logo  from "@/public/_static/favicons/android-chrome-192x192.png";
 import Image from "next/image";
+import { Icons } from "../shared/icons";
 
 
 
@@ -13,8 +14,8 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
       <div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="flex items-center mb-4 md:mb-0">
-          <Image src={Logo} alt="MUJ Central Logo" className="h-8 w-8 mr-3" />
+          <div className="flex items-center mb-4 md:mb-0 space-x-1.5">
+          <Icons.logo/>
             <span className="font-urban text-xl font-bold">MUJ Central 2.0</span>
           </div>
           <nav className="flex flex-wrap justify-center md:justify-end space-x-6">

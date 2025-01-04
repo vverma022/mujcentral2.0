@@ -26,13 +26,13 @@ export default function Features() {
                 >
                   <h4 className="flex items-center text-xl font-semibold space-x-2">
                   <div className="relative flex size-12 rounded-2xl border border-border shadow-sm *:relative *:m-auto *:size-6 mx-2">
-                      <Icon />
+                      <Icon className=" text-" />
                     </div>
                     {feature.title}
                     </h4>
                   <div
                     aria-hidden="true"
-                    className="absolute inset-0 aspect-video -translate-y-1/2 rounded-full border bg-gradient-to-b from-purple-500/80 to-white opacity-25 blur-2xl duration-300 group-hover:-translate-y-1/4 dark:from-white dark:to-white dark:opacity-5 dark:group-hover:opacity-10"
+                    className="absolute inset-0 aspect-video -translate-y-1/2 rounded-full border bg-gradient-to-b from-orange-500/80 to-white opacity-25 blur-2xl duration-300 group-hover:-translate-y-1/4 dark:from-white dark:to-white dark:opacity-5 dark:group-hover:opacity-10"
                   />
                   <div className="relative">
                     <p className="mt-6 pb-6 text-muted-foreground">
@@ -46,7 +46,7 @@ export default function Features() {
                         rounded="xl"
                         className="px-4"
                       >
-                        <Link href="/pyq" className="flex items-center gap-2">
+                        <Link href={feature.link} className="flex items-center gap-2">
                           <span>Get Access</span>
                           <Icons.arrowUpRight className="size-4" />
                         </Link>

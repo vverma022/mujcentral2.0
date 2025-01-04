@@ -31,6 +31,7 @@ import {
   Trash,
   User,
   X,
+  GraduationCap
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -48,6 +49,7 @@ export const Icons = {
   copy: Copy,
   dashboard: LayoutPanelLeft,
   ellipsis: MoreVertical,
+  college: GraduationCap,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"
