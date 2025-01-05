@@ -74,6 +74,7 @@
     "react-dom": "19.0.0",
     "react-email": "3.0.4",
     "react-hook-form": "^7.54.2",
+    "react-pdf": "^9.2.1",
     "react-textarea-autosize": "^8.5.6",
     "recharts": "^2.15.0",
     "resend": "^4.0.1",
