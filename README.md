@@ -1,5 +1,5 @@
-<a href="https://next-saas-stripe-starter.vercel.app">
-  <img alt="SaaS Starter" src="public/_static/og.jpg">
+<a href="">
+  <img alt="MUJ Central" src="public/_static/og.jpg">
   <h1 align="center">MUJ Central 2.0</h1>
 </a>
 
@@ -32,7 +32,7 @@ npx create-next-app my-saas-project --example "https://github.com/vverma022/mujc
 1. Install dependencies using pnpm:
 
 ```sh
-pnpm install
+npm install
 ```
 
 2. Copy `.env.example` to `.env.local` and update the variables.
@@ -44,7 +44,7 @@ cp .env.example .env.local
 3. Start the development server:
 
 ```sh
-pnpm run dev
+npm run dev
 ```
 
 > [!NOTE]  
@@ -53,8 +53,10 @@ pnpm run dev
 > Use this command for update your project: `ncu -i --format group`
 
 ## Roadmap
-- [ ] Upgrade eslint to v9
-- [ ] Add resend for success subscriptions
+- [ ] Add support for Assingments
+- [ ] Add paid solutions to papers
+- [ ] Add email support to contact us
+- [ ] Limit user intractivity in confessions and unimates 
 
 ### Frameworks
 
