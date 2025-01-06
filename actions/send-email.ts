@@ -1,32 +1,38 @@
 'use server'
 
-import { z } from 'zod'
-
-const formSchema = z.object({
-  name: z.string().min(1, 'Name is required'),
-  email: z.string().email('Invalid email address'),
-  content: z.string().min(1, 'Message is required'),
-})
+import nodemailer from 'nodemailer'
 
 export async function sendEmail(formData: FormData) {
-  const validatedFields = formSchema.safeParse({
-    name: formData.get('name'),
-    email: formData.get('email'),
-    content: formData.get('content'),
+  const name = formData.get('name') as string
+  const email = formData.get('email') as string
+  const message = formData.get('message') as string
+
+  
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: parseInt(process.env.SMTP_PORT || '587'),
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
   })
 
-  if (!validatedFields.success) {
-    return { error: 'Invalid form data' }
+  // Send the email
+  try {
+    await transporter.sendMail({
+      from: process.env.SMTP_FROM,
+      to: process.env.CONTACT_EMAIL,
+      subject: 'New Contact Form Submission',
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+      html: `<p><strong>Name:</strong> ${name}</p>
+             <p><strong>Email:</strong> ${email}</p>
+             <p><strong>Message:</strong> ${message}</p>`,
+    })
+
+    return { success: true, message: 'Email sent successfully' }
+  } catch (error) {
+    console.error('Error sending email:', error)
+    return { success: false, message: 'Failed to send email' }
   }
-
-  const { name, email, content } = validatedFields.data
-
-  // Here you would typically use an email sending service
-  // For this example, we'll just log the data
-  console.log('Sending email:', { name, email, content })
-
-  // Simulate sending email
-  await new Promise(resolve => setTimeout(resolve, 1000))
-
-  return { success: 'Email sent successfully' }
 }
+

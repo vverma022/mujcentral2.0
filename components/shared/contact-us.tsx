@@ -1,76 +1,64 @@
 'use client'
 
 import { useState } from 'react'
-import { useActionState } from 'react'
 import { Button } from "@/components/ui/button"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
+import { useToast } from "@/components/ui/use-toast"
 import { sendEmail } from '@/actions/send-email'
 
 export function ContactButton() {
   const [open, setOpen] = useState(false)
-//   const [state, action, isPending] = useActionState(sendEmail)
+  const { toast } = useToast()
+
+  async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    const formData = new FormData(event.currentTarget)
+    const result = await sendEmail(formData)
+
+    if (result.success) {
+      toast({
+        title: "Success",
+        description: "Your message has been sent.",
+      })
+      setOpen(false)
+    } else {
+      toast({
+        title: "Error",
+        description: "Failed to send your message. Please try again.",
+        variant: "destructive",
+      })
+    }
+  }
 
   return (
-      <>
-          <Dialog open={open} onOpenChange={setOpen}>
-            <DialogTrigger asChild>
-                <Button variant="ghost" className="">
-                    Contact Us
-                </Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
-              <DialogHeader>
-                <DialogTitle>Send us an email</DialogTitle>
-                <DialogDescription>
-                  Fill out this form to send us an email. We'll get back to you as soon as possible.
-                </DialogDescription>
-              </DialogHeader>
-              <form >
-                <div className="grid gap-4 py-4">
-                  <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor="name" className="text-right">
-                      Name
-                    </Label>
-                    <Input id="name" name="name" className="col-span-3" />
-                  </div>
-                  <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor="email" className="text-right">
-                      Email
-                    </Label>
-                    <Input id="email" name="email" type="email" className="col-span-3" />
-                  </div>
-                  <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor="content" className="text-right">
-                      Message
-                    </Label>
-                    <Textarea id="content" name="content" className="col-span-3" />
-                  </div>
-                </div>
-                <DialogFooter>
-                  <Button type="submit">
-                    {/* {isPending ? 'Sending...' : 'Send Email'} */}
-                  </Button>
-                </DialogFooter>
-              </form>
-              {/* {state && (
-                <div className={`mt-2 text-sm ${state.error ? 'text-red-600' : 'text-green-600'}`}>
-                  {state.error || state.success}
-                </div>
-              )} */}
-            </DialogContent>
-          </Dialog>
-        </>
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button variant='ghost' className='text-sm text-muted-foreground'>Contact Us</Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle className='text-center text-gradient_indigo-purple'>Contact Us</DialogTitle>
+        </DialogHeader>
+        <form onSubmit={onSubmit} className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="name">Name</Label>
+            <Input id="name" name="name" required />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="email">Email</Label>
+            <Input id="email" name="email" type="email" required />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="message">Message</Label>
+            <Textarea id="message" name="message" required />
+          </div>
+          <Button type="submit" className='items-center'>Send Message</Button>
+        </form>
+      </DialogContent>
+    </Dialog>
   )
 }
 

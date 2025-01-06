@@ -2,8 +2,6 @@ import * as React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "@/components/layout/mode-toggle";
-import  Logo  from "@/public/_static/favicons/android-chrome-192x192.png";
-import Image from "next/image";
 import { Icons } from "../shared/icons";
 import { ContactButton } from "../shared/contact-us";
 
