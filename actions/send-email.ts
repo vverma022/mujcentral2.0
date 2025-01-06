@@ -22,11 +22,16 @@ export async function sendEmail(formData: FormData) {
     await transporter.sendMail({
       from: process.env.SMTP_FROM,
       to: process.env.CONTACT_EMAIL,
-      subject: 'New Contact Form Submission',
-      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-      html: `<p><strong>Name:</strong> ${name}</p>
-             <p><strong>Email:</strong> ${email}</p>
-             <p><strong>Message:</strong> ${message}</p>`,
+      subject: 'MUJ-CENTRAL 2.0 - New Contact Form Submission', 
+      text: `MUJ-CENTRAL 2.0\n\nA user answered the contact form.\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`,
+      html: `
+        <h1>MUJ-CENTRAL</h1>
+        <p><strong>A user answered the contact form.</strong></p>
+        <hr />
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong> ${message}</p>
+      `,
     })
 
     return { success: true, message: 'Email sent successfully' }

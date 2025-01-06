@@ -22,13 +22,14 @@ export function ContactButton() {
       toast({
         title: "Success",
         description: "Your message has been sent.",
+        variant: "default",  // Green toast for success
       })
       setOpen(false)
     } else {
       toast({
         title: "Error",
         description: "Failed to send your message. Please try again.",
-        variant: "destructive",
+        variant: "destructive",  // Red toast for error
       })
     }
   }
@@ -61,4 +62,3 @@ export function ContactButton() {
     </Dialog>
   )
 }
-
