@@ -5,6 +5,7 @@ import { ModeToggle } from "@/components/layout/mode-toggle";
 import  Logo  from "@/public/_static/favicons/android-chrome-192x192.png";
 import Image from "next/image";
 import { Icons } from "../shared/icons";
+import { ContactButton } from "../shared/contact-us";
 
 
 
@@ -28,6 +29,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
             <Link href="/privacy" className="text-sm text-muted-foreground">
               Privacy
             </Link>
+              <ContactButton />
           </nav>
         </div>
       </div>
