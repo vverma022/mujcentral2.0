@@ -28,7 +28,7 @@ export function UnimatesPoster() {
             <h2 className="font-heading text-2xl text-foreground md:text-4xl lg:text-[40px]">
              Meet your Unimates
             </h2>
-            <dl className="text-muted-foreground mt-4">
+            <dl className="mt-4 text-muted-foreground">
              Unimates helps you find people from your city coming to your university. So you can connect with them before you even reach the campus.
             </dl>
             <div className='mt-4'>

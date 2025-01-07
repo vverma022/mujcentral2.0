@@ -66,7 +66,7 @@ export default function AddConfessionButton() {
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           {error && (
-            <p className="text-red-500 text-center text-sm">{error}</p>
+            <p className="text-center text-sm text-red-500">{error}</p>
           )}
           <div className="space-y-2">
             <Label htmlFor="confession">Your Confession</Label>
@@ -79,7 +79,7 @@ export default function AddConfessionButton() {
               disabled={isSubmitting}
               required
             />
-            <p className="text-xs text-muted-foreground text-center">
+            <p className="text-center text-xs text-muted-foreground">
               Please understand that there are certain boundaries to things.
             </p>
           </div>
@@ -94,7 +94,7 @@ export default function AddConfessionButton() {
               disabled={isSubmitting}
               required
             />
-            <p className="text-xs text-muted-foreground text-center">
+            <p className="text-center text-xs text-muted-foreground">
               Provided name will be hashed and securely stored in our database
               for security reasons.
             </p>

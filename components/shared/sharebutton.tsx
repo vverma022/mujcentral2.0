@@ -33,7 +33,7 @@ export default function ShareButton() {
     <Dialog>
     <DialogTrigger asChild>
       <Button variant="ghost" size="sm">
-        <Share2 className="mr-2 h-4 w-4" />
+        <Share2 className="mr-2 size-4" />
         Share
       </Button>
       
@@ -50,8 +50,8 @@ export default function ShareButton() {
               rel="noopener noreferrer"
               className="w-full"
             >
-              <Button variant="outline" className="w-full flex items-center">
-                <Instagram className="mr-2 h-4 w-4" />
+              <Button variant="outline" className="flex w-full items-center">
+                <Instagram className="mr-2 size-4" />
                 Instagram
               </Button>
             </a>
@@ -64,8 +64,8 @@ export default function ShareButton() {
               rel="noopener noreferrer"
               className="w-full"
             >
-              <Button variant="outline" className="w-full flex items-center">
-                <MessageCircle className="mr-2 h-4 w-4" />
+              <Button variant="outline" className="flex w-full items-center">
+                <MessageCircle className="mr-2 size-4" />
                 WhatsApp
               </Button>
             </a>
@@ -78,8 +78,8 @@ export default function ShareButton() {
               rel="noopener noreferrer"
               className="w-full"
             >
-              <Button variant="outline" className="w-full flex items-center">
-                <Facebook className="mr-2 h-4 w-4" />
+              <Button variant="outline" className="flex w-full items-center">
+                <Facebook className="mr-2 size-4" />
                 Facebook
               </Button>
             </a>
@@ -87,9 +87,9 @@ export default function ShareButton() {
             <Button
               onClick={copyLink}
               variant="outline"
-              className="w-full flex items-center"
+              className="flex w-full items-center"
             >
-              <Copy className="mr-2 h-4 w-4" />
+              <Copy className="mr-2 size-4" />
               Copy Link
             </Button>
           </>

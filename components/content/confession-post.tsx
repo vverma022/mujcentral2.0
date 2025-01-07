@@ -21,7 +21,7 @@ export default function ConfessionPost({ confession, username}: ConfessionPostPr
   return (
     <Card className="overflow-hidden">
       <CardContent className="p-4">
-        <p className="text-sm mb-3">{confession}</p>
+        <p className="mb-3 text-sm">{confession}</p>
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <span className="text-xs font-medium">{username}</span>

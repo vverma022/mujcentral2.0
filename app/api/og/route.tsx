@@ -55,7 +55,7 @@ export async function GET(req: Request) {
               color: 'transparent'
             }}
           >
-            SaaS Starter
+            MUJ CENTRAL 2.0
           </div>
 
           <div tw="flex flex-col flex-1 py-16">

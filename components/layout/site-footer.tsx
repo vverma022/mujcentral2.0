@@ -11,13 +11,13 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
     <footer className={cn("border-t", className)}>
       <div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="flex items-center mb-4 md:mb-0 space-x-1.5">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center justify-between md:flex-row">
+          <div className="mb-4 flex items-center space-x-1.5 md:mb-0">
           <Icons.logo/>
             <span className="font-urban text-xl font-bold">MUJ Central 2.0</span>
           </div>
-          <nav className="flex flex-wrap justify-center md:justify-end space-x-6">
+          <nav className="flex flex-wrap justify-center space-x-6 md:justify-end">
             <Link href="/aboutus" className="text-sm text-muted-foreground">
               About Us
             </Link>
@@ -34,7 +34,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
       </div>
       <div className="border-t py-4">
         <div className="container flex max-w-6xl items-center justify-between">
-           <span className="text-muted-foreground text-sm">
+           <span className="text-sm text-muted-foreground">
             Copyright &copy; 2025. All rights reserved.
           </span> 
           <p className="text-left text-sm text-muted-foreground">

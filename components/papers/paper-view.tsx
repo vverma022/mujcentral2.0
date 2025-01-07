@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
 
 // Set up the worker for react-pdf
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`
@@ -31,13 +32,13 @@ export default function PDFViewer({ pdfUrl, posterUrl, paperName, difficulty }: 
   }
 
   return (
-    <div className="flex overflow-hidden rounded-xl shadow-lg max-w-2xl w-full">
+    <div className="flex w-full max-w-2xl overflow-hidden rounded-xl shadow-lg">
       <div className="w-1/2">
-        <img src={posterUrl} alt={`Poster for ${paperName}`} className="w-full h-full object-cover" />
+        <Image src={posterUrl} alt={`Poster for ${paperName}`} className="size-full object-cover" />
       </div>
-      <div className="w-1/2 p-6 flex flex-col justify-between bg-white">
+      <div className="flex w-1/2 flex-col justify-between bg-white p-6">
         <div>
-          <h2 className="text-2xl font-bold mb-2">{paperName}</h2>
+          <h2 className="mb-2 text-2xl font-bold">{paperName}</h2>
           <Badge className={`${difficultyColor[difficulty]} mb-4`}>
             {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
           </Badge>
@@ -46,10 +47,10 @@ export default function PDFViewer({ pdfUrl, posterUrl, paperName, difficulty }: 
           <DialogTrigger asChild>
             <Button className="w-full">
               View
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight className="ml-2 size-4" />
             </Button>
           </DialogTrigger>
-          <DialogContent className="max-w-3xl w-full h-[80vh]">
+          <DialogContent className="h-[80vh] w-full max-w-3xl">
             <Document
               file={pdfUrl}
               onLoadSuccess={onDocumentLoadSuccess}

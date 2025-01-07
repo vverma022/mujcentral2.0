@@ -41,7 +41,7 @@ export function ContactButton() {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle className='text-center text-gradient_indigo-purple'>Contact Us</DialogTitle>
+          <DialogTitle className='text-gradient_indigo-purple text-center'>Contact Us</DialogTitle>
         </DialogHeader>
         <form onSubmit={onSubmit} className="space-y-4">
           <div className="space-y-2">

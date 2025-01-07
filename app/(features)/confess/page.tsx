@@ -33,7 +33,7 @@ export default function ConfessionsPage() {
       <h2 className="font-heading text-2xl text-foreground md:text-4xl lg:text-[40px]">
       Your Voice, Your Story, Your Confession
       </h2>
-      <dl className="text-muted-foreground mt-4">
+      <dl className="mt-4 text-muted-foreground">
       Express yourself freely and anonymously. Share your thoughts, experiences, and confessions with the MUJ community
       </dl>
       <div className='mt-4'>

@@ -31,26 +31,26 @@ const CookieConsentBanner = () => {
   
 
   return (
-    <div className="fixed bottom-4 right-4 bg-inherit  shadow-lg rounded-lg overflow-hidden border  z-50 p-4 flex items-center space-x-4 max-w-sm">
-      <Cookie className="h-6 w-6 text-gradient_indigo-purple flex-shrink-0" />
-      <div className="flex-grow">
+    <div className="fixed bottom-4 right-4 z-50  flex max-w-sm items-center space-x-4  overflow-hidden rounded-lg border bg-inherit p-4 shadow-lg">
+      <Cookie className="text-gradient_indigo-purple size-6 shrink-0" />
+      <div className="grow">
         <p className="text-sm text-muted-foreground">
           We use cookies to enhance your experience.
         </p>
       </div>
-      <div className="flex space-x-2 flex-shrink-0">
+      <div className="flex shrink-0 space-x-2">
         <Button 
           variant="outline" 
           size="sm" 
           onClick={handleDeny}
-          className="text-xs px-2 py-1 h-8"
+          className="h-8 px-2 py-1 text-xs"
         >
           Deny
         </Button>
         <Button 
           size="sm" 
           onClick={handleAllow}
-          className="text-xs px-2 py-1 h-8"
+          className="h-8 px-2 py-1 text-xs"
         >
           Allow
         </Button>

@@ -24,8 +24,8 @@ export default function Features() {
                 <div
                   className="group relative overflow-hidden rounded-2xl border bg-background p-5 md:p-8"
                 >
-                  <h4 className="flex items-center text-xl font-semibold space-x-2">
-                  <div className="relative flex size-12 rounded-2xl border border-border shadow-sm *:relative *:m-auto *:size-6 mx-2">
+                  <h4 className="flex items-center space-x-2 text-xl font-semibold">
+                  <div className="relative mx-2 flex size-12 rounded-2xl border border-border shadow-sm *:relative *:m-auto *:size-6">
                       <Icon className=" text-" />
                     </div>
                     {feature.title}

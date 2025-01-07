@@ -200,15 +200,15 @@ export function AddProfileButton() {
       <DialogTrigger asChild>
         <Button>Add Profile</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] fixed">
+      <DialogContent className="fixed sm:max-w-[425px]">
         <DialogHeader>
-          <h1 className="text-gradient_indigo-purple font-bold text-center">Unimates</h1>
+          <h1 className="text-gradient_indigo-purple text-center font-bold">Unimates</h1>
           <DialogTitle>{steps[currentStep].title}</DialogTitle>
         </DialogHeader>
         <Progress value={progress} className="w-full" />
         <form onSubmit={handleSubmit} className="space-y-4 py-4">
           {renderStepContent()}
-          <div className="flex justify-between mt-4">
+          <div className="mt-4 flex justify-between">
             {currentStep > 0 && (
               <Button type="button" variant="outline" onClick={back}>
                 Back

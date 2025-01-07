@@ -38,7 +38,7 @@ export function NavBar({ scroll = false }: NavBarProps) {
       }`}
     >
       <MaxWidthWrapper
-        className="flex h-14 items-center justify-center py-4 border-b"
+        className="flex h-14 items-center justify-center border-b py-4"
         large={documentation}
       >
         <div className="flex gap-6 md:gap-10">
