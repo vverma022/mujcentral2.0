@@ -8,6 +8,7 @@ import { cn, constructMetadata } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from "@/components/analytics";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
+import CookieConsentBanner from "@/components/shared/cookie-consent";
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             enableSystem
             disableTransitionOnChange
           >
+            <CookieConsentBanner />
             {children}
             <Analytics />
             <Toaster richColors closeButton />
