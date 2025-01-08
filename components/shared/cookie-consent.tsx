@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
 import { Cookie } from 'lucide-react'
+import {v4 as uuidv4} from 'uuid'
 
 const CookieConsentBanner = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -16,8 +17,15 @@ const CookieConsentBanner = () => {
 
   const handleAllow = () => {
     localStorage.setItem('cookieConsent', 'allowed')
-    setIsVisible(false)
-    // Here you would typically set cookies or trigger your analytics software
+    const userUUID = uuidv4();
+    document.cookie = `user_data= ${JSON.stringify(
+     {
+      uuid: userUUID,
+      confessionCount: 0,
+      lastreset: Date.now()
+    }
+    )};path=/ ;secure ;sameSite=strict;`
+    setIsVisible(false);
   }
 
   const handleDeny = () => {

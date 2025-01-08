@@ -38,8 +38,6 @@ export default function AddConfessionButton() {
         confession: confession.trim(),
       });
       console.log('Confession added:', response.data);
-
-      // Reset state and close dialog
       setName('');
       setConfession('');
       setIsOpen(false);
