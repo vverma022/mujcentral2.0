@@ -37,7 +37,7 @@ export default function ConfessionList() {
       <div className="max-w-screen-sm">
         <h1 className="pb-2 font-heading text-3xl md:text-4xl">Confessions</h1>
       </div>
-      <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
         {confessions.map((confession: { username: string, confession: string, id: number }) => (
           <ConfessionPost key={confession.id} username={confession.username} confession={confession.confession} />
         ))}

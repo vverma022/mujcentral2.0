@@ -21,3 +21,30 @@ model Confession {
   confession  String    
   createdAt   DateTime  @default(now())                
 }
+
+model Profile {
+  id              Int      @id @default(autoincrement()) // Primary key
+  name            String                               
+  gender          String                               
+  course          String                               
+  major           String                               
+  city            String                               
+  instagram       String?                              
+  twitter         String?                              
+  facebook        String?                              
+  description     String?                              
+  enrollmentYear  Int                                  
+  graduationYear  Int                                  
+  createdAt       DateTime @default(now())             
+  
+  photos          Photo[]                              
+}
+
+model Photo {
+  id         Int      @id @default(autoincrement())    
+  url        String                                   // Photo URL
+  profileId  Int                                      
+  uploadedAt DateTime @default(now())                 
+
+  profile    Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+}

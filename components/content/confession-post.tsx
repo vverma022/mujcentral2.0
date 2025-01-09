@@ -1,10 +1,6 @@
 "use client"
 
-import Image from 'next/image'
-import { Card, CardContent } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
-import { Share2 } from 'lucide-react'
+import { Card, CardContent,CardFooter } from "@/components/ui/card"
 import ShareButton from '../shared/sharebutton'
 
 interface ConfessionPostProps {
@@ -13,22 +9,20 @@ interface ConfessionPostProps {
 }
 
 export default function ConfessionPost({ confession, username}: ConfessionPostProps) {
-  const handleShare = () => {
-    
-    console.log('Sharing confession:', confession)
-  }
-
   return (
-    <Card className="overflow-hidden">
-      <CardContent className="p-4">
-        <p className="mb-3 text-sm">{confession}</p>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <span className="text-xs font-medium">{username}</span>
-          </div>
-           <ShareButton />
+    <Card className="w-full max-w-[280px] mx-auto shadow-md overflow-hidden">
+      <CardContent className="p-0">
+      <div className="aspect-square bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500  p-4 flex flex-col items-center justify-center relative border">
+          <p className="text-sm font-medium text-center mb-2 line-clamp-5">
+            {confession}
+          </p>
+          <span className="text-xs p-2 font-semibold absolute bottom-1 right-1">MUJ_CONFESS</span>
         </div>
       </CardContent>
+      <CardFooter className="flex justify-between items-center p-2">
+        <span className="font-semibold  text-xs">{username}</span>
+        <ShareButton />
+      </CardFooter>
     </Card>
   )
 }

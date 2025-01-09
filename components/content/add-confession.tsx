@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -20,6 +21,7 @@ export default function AddConfessionButton() {
   const [confession, setConfession] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
+  const [message, setMessage] = useState('');
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -37,9 +39,10 @@ export default function AddConfessionButton() {
         name: name.trim(),
         confession: confession.trim(),
       });
-      console.log('Confession added:', response.data);
       setName('');
       setConfession('');
+      const result = await response.data;
+      setMessage(result.message);
       setIsOpen(false);
     } catch (err) {
       console.error('Error submitting confession:', err);
@@ -102,6 +105,9 @@ export default function AddConfessionButton() {
           </Button>
         </form>
       </DialogContent>
+      <DialogFooter>
+      {message && <p className="mt-2">{message}</p>}
+      </DialogFooter>
     </Dialog>
   );
 }

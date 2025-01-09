@@ -15,7 +15,7 @@ export async function GET() {
         createdAt: 'desc',
       },
     });
-
+    
     return NextResponse.json(confessions);
   } catch (error) {
     console.error('Error fetching confessions:', error);

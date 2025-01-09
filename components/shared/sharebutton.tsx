@@ -34,7 +34,6 @@ export default function ShareButton() {
     <DialogTrigger asChild>
       <Button variant="ghost" size="sm">
         <Share2 className="mr-2 size-4" />
-        Share
       </Button>
       
     </DialogTrigger>

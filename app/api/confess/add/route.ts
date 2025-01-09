@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
       JSON.stringify({ uuid, confessionCount: updatedCount, lastReset: updatedLastReset }),
       {
         httpOnly: true,
-        secure: false,
+        secure: false, //for local development for production set to true; 
         path: "/",
         sameSite: "strict",
       }

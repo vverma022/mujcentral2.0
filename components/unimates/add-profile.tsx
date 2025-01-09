@@ -210,11 +210,11 @@ export function AddProfileButton() {
           {renderStepContent()}
           <div className="mt-4 flex justify-between">
             {currentStep > 0 && (
-              <Button type="button" variant="outline" onClick={back}>
+              <Button type="button" variant="outline" className='rounded-full' onClick={back}>
                 Back
               </Button>
             )}
-            <Button type="submit">
+            <Button type="submit" className='rounded-full'>
               {currentStep === steps.length - 1 ? 'Submit' : 'Next'}
             </Button>
           </div>
