@@ -11,9 +11,12 @@ import { Textarea } from "@/components/ui/textarea"
 
 interface ProfileFormData {
   name: string;
-  batch: string;
+  gender: string;
+  yearofentry: number;
+  yearofgraduation: number;
   city: string;
   course: string;
+  major: string;
   profilePhoto: File | null;
   postPhoto: File | null;
   instagram: string;
@@ -24,9 +27,12 @@ interface ProfileFormData {
 
 const INITIAL_DATA: ProfileFormData = {
   name: '',
-  batch: '',
+  gender: '',
+  yearofentry: 2025,
+  yearofgraduation: 2029,
   city: '',
   course: '',
+  major: '',
   profilePhoto: null,
   postPhoto: null,
   instagram: '',
@@ -42,9 +48,10 @@ export function AddProfileButton() {
 
   const steps = [
     { title: 'Basic Info' },
-    { title: 'Photos' },
-    { title: 'Social Media' },
+    { title: 'Course Details' },
+    { title: 'Photo' },
     { title: 'Description' },
+    { title: 'Social Media' },
   ]
 
   const updateFields = (fields: Partial<ProfileFormData>) => {
@@ -62,7 +69,6 @@ export function AddProfileButton() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (currentStep === steps.length - 1) {
-      // Submit the form data
       console.log('Form submitted:', formData)
       setOpen(false)
       setCurrentStep(0)
@@ -90,19 +96,20 @@ export function AddProfileButton() {
                 onChange={e => updateFields({ name: e.target.value })}
               />
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="batch">Batch</Label>
-              <Select value={formData.batch} onValueChange={value => updateFields({ batch: value })}>
+            <div>
+              <Label htmlFor='gender'>Gender</Label>
+              <Select value={formData.gender} onValueChange={value => updateFields({gender: value})}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select year" />
+                  <SelectValue placeholder="Select gender" />
                 </SelectTrigger>
                 <SelectContent>
-                  {years.map((year) => (
-                    <SelectItem key={year} value={year.toString()}>
-                      {year} - {year + 1}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
+                  <SelectItem key='male' value='male'>
+                     Male
+                  </SelectItem>
+                  <SelectItem key='female' value='female'>
+                    Female
+                  </SelectItem>
+                  </SelectContent>
               </Select>
             </div>
             <div className="space-y-2">
@@ -113,6 +120,11 @@ export function AddProfileButton() {
                 onChange={e => updateFields({ city: e.target.value })}
               />
             </div>
+          </div>
+        )
+      case 1:
+        return (
+          <div className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="course">Course</Label>
               <Input 
@@ -121,11 +133,37 @@ export function AddProfileButton() {
                 onChange={e => updateFields({ course: e.target.value })}
               />
             </div>
+            <div className="space-y-2">
+              <Label htmlFor="major">Major</Label>
+              <Input 
+                id="major" 
+                value={formData.major} 
+                onChange={e => updateFields({ major: e.target.value })}
+              />
+            </div>
+            <div className='space-y-2'>
+              <Label htmlFor='yearofentry'>Freshman Year</Label>
+              <Input 
+                id='batch' 
+                type='number' 
+                onChange={e => updateFields({ yearofentry: Number(e.target.value) })}
+                defaultValue={currentYear}
+                />
+            </div>
+            <div className='space-y-2'>
+              <Label htmlFor='yearofentry'>Graduation Year</Label>
+              <Input 
+                id='batch' 
+                type='number' 
+                onChange={e => updateFields({ yearofgraduation: Number(e.target.value) })}
+                defaultValue={currentYear + 4}
+                />
+            </div>
           </div>
         )
-      case 1:
+      case 2:
         return (
-          <div className="space-y-4">
+          <div className='space-y-4'>
             <div className="space-y-2">
               <Label htmlFor="profilePhoto">Profile Photo</Label>
               <Input 
@@ -146,9 +184,21 @@ export function AddProfileButton() {
             </div>
           </div>
         )
-      case 2:
+      case 3:
         return (
-          <div className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="description">Description</Label>
+            <Textarea 
+              id="description" 
+              placeholder="Caption"
+              value={formData.description}
+              onChange={e => updateFields({ description: e.target.value })}
+            />
+          </div>
+        )
+        case 4:
+          return (
+            <div className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="instagram">Instagram</Label>
               <Input 
@@ -177,19 +227,7 @@ export function AddProfileButton() {
               />
             </div>
           </div>
-        )
-      case 3:
-        return (
-          <div className="space-y-2">
-            <Label htmlFor="description">Description</Label>
-            <Textarea 
-              id="description" 
-              placeholder="Caption"
-              value={formData.description}
-              onChange={e => updateFields({ description: e.target.value })}
-            />
-          </div>
-        )
+          )
       default:
         return null
     }
