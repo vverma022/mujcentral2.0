@@ -8,6 +8,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
+import axios from 'axios'
+import { ca } from 'date-fns/locale'
 
 interface ProfileFormData {
   name: string;
@@ -66,10 +68,19 @@ export function AddProfileButton() {
     setCurrentStep(i => Math.max(i - 1, 0))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (currentStep === steps.length - 1) {
-      console.log('Form submitted:', formData)
+      try{  
+        console.log(formData)
+        const reponse = await axios.post('/api/unimates/create', formData , {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        })
+      } catch (error) {
+        console.error('Error submitting profile:', error)
+      }
       setOpen(false)
       setCurrentStep(0)
       setFormData(INITIAL_DATA)
