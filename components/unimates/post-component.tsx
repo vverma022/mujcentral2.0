@@ -21,7 +21,7 @@ interface InstagramPostProps {
 }
 
 
-export default async function UnimatesPost({
+export default  function UnimatesPost({
   username,
   avatarUrl,
   course,

@@ -1,36 +1,64 @@
-import Image from 'next/image'
-import Poster from '@/public/_static/illustrations/romantic-dinner.svg'
-import MaxWidthWrapper from '@/components/shared/max-width-wrapper'
-import UnimatesPost from '@/components/unimates/post-component'
+"use client"
+import { useState, useEffect } from 'react';
+import UnimatesPosts from '@/components/unimates/unimates-posts';
 
 
+type Profile = {
+  name: string;
+  photos: string[];
+  course: string;
+  major: string;
+  enrollmentYear: number;
+  graduationYear: number;
+  city: string;
+  description?: string;
+  facebook?: string;
+  instagram?: string;
+  twitter?: string;
+};
 
 
+export default function UnimatesPage() {
+  const [profile, setProfile] = useState<Profile | null>(null); 
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState<string | null>(null); 
 
-export default function UnimatesPage(){
-  const placeholder = {
-    username: "Vasu",
-    avatarUrl: "/placeholder.svg?height=400&width=400",
-    course: "B.Tech",
-    major: "CSE",
-    yearofentry: "2023",
-    yearofgraduation: "2027",
-    city: "Jaipur",
-    imageUrl: "/placeholder.svg?height=400&width=400",
-    caption: "I'm looking for a roommate in Jaipur. DM me if you're interested!",
-    facebookUrl: "https://facebook.com",
-    instagramUrl: "https://instagram.com",
-    twitterUrl: "https://twitter.com",
-  };
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const response = await fetch('/api/unimates/fetch'); // Your backend API endpoint
+        if (!response.ok) {
+          throw new Error(`Failed to fetch profiles: ${response.status}`);
+        }
+        const data = await response.json();
 
-    return(
-        <>
-      <div className="max-w-screen-sm py-6 md:pb-8 md:pt-10">
-        <h1 className="pb-2 font-heading text-3xl md:text-4xl">Your Unimates</h1>
-      </div>
-      <div className="container mx-auto p-4">
-      <UnimatesPost {...{...placeholder, yearofentry: parseInt(placeholder.yearofentry), yearofgraduation: parseInt(placeholder.yearofgraduation)}} />
-      </div>
-        </>
-    )
+        
+        if (data.length > 0) {
+          setProfile(data[0]); // Set the first profile
+        } else {
+          setError('No profiles found.');
+        }
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProfile();
+  }, []);
+
+  if (loading) {
+    return <div className="text-center py-4">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="text-center py-4 text-red-500">Error: {error}</div>;
+  }
+
+  if (!profile) {
+    return <div className="text-center py-4">No profile available.</div>;
+  }
+
+  return <UnimatesPosts profiles={[profile]} />
 }

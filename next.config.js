@@ -1,4 +1,4 @@
-const { withContentlayer } = require("next-contentlayer2");
+const { withContentlayer } = require("next-contentlayer");
 
 import("./env.mjs");
 
@@ -18,6 +18,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "randomuser.me",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com", // Added Cloudinary domain
       },
     ],
   },
