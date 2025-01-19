@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import axios from 'axios'
-import { ca } from 'date-fns/locale'
+import { ErrorAlert, SuccessAlert } from '../shared/alearts'
 
 interface ProfileFormData {
   name: string;
@@ -19,7 +19,6 @@ interface ProfileFormData {
   city: string;
   course: string;
   major: string;
-  profilePhoto: File | null;
   postPhoto: File | null;
   instagram: string;
   facebook: string;
@@ -35,7 +34,6 @@ const INITIAL_DATA: ProfileFormData = {
   city: '',
   course: '',
   major: '',
-  profilePhoto: null,
   postPhoto: null,
   instagram: '',
   facebook: '',
@@ -46,7 +44,9 @@ const INITIAL_DATA: ProfileFormData = {
 export function AddProfileButton() {
   const [open, setOpen] = useState(false)
   const [currentStep, setCurrentStep] = useState(0)
-  const [formData, setFormData] = useState<ProfileFormData>(INITIAL_DATA)
+  const [formData, setFormData] = useState<ProfileFormData>(INITIAL_DATA);
+  const [error, setError] = useState<string | null>('');
+  const [message, setMessage] = useState<string | null>('');
 
   const steps = [
     { title: 'Basic Info' },
@@ -78,8 +78,10 @@ export function AddProfileButton() {
             'Content-Type': 'multipart/form-data',
           },
         })
+        setMessage('Your profile has been submitted successfully.')
       } catch (error) {
-        console.error('Error submitting profile:', error)
+        console.error(error)
+        setError('Failed to submit your profile. Please try again.')
       }
       setOpen(false)
       setCurrentStep(0)
@@ -176,15 +178,6 @@ export function AddProfileButton() {
         return (
           <div className='space-y-4'>
             <div className="space-y-2">
-              <Label htmlFor="profilePhoto">Profile Photo</Label>
-              <Input 
-                id="profilePhoto" 
-                type="file" 
-                accept="image/*"
-                onChange={e => updateFields({ profilePhoto: e.target.files?.[0] || null })}
-              />
-            </div>
-            <div className="space-y-2">
               <Label htmlFor="postPhoto">Post Photo</Label>
               <Input 
                 id="postPhoto" 
@@ -245,6 +238,7 @@ export function AddProfileButton() {
   }
 
   return (
+    <>
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button>Add Profile</Button>
@@ -270,6 +264,14 @@ export function AddProfileButton() {
         </form>
       </DialogContent>
     </Dialog>
+    <div className="fixed inset-0 z-[9999] pointer-events-none flex items-end justify-end p-4">
+    <div className="space-y-4 pointer-events-auto">
+      {message && ( <SuccessAlert success={message} setSuccess={setMessage} /> )}
+      {error && (<ErrorAlert error={error} setError={setError} /> )}
+    </div>
+  </div>
+  </>
+
   )
 }
 

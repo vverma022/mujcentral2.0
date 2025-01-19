@@ -61,7 +61,7 @@ export default  function UnimatesPost({
       </CardContent>
       <CardFooter className="flex flex-col items-start p-4">
         <p className="text-sm mb-4">
-          <span className="font-semibold mr-2">{username || 'Anonymous'}</span>
+          <span className="font-semibold mr-2">{username || 'Anonymous'},</span>
           {caption}
         </p>
         <div className="flex justify-center items-center w-full space-x-4">

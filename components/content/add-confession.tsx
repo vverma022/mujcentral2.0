@@ -16,6 +16,7 @@ import { Textarea } from "@/components/ui/textarea";
 import axios from 'axios';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { CircleCheckIcon } from 'lucide-react';
+import { ErrorAlert, SuccessAlert } from '../shared/alearts';
 
 export default function AddConfessionButton() {
   const [isOpen, setIsOpen] = useState(false);
@@ -111,38 +112,8 @@ export default function AddConfessionButton() {
     </Dialog>
     <div className="fixed inset-0 z-[9999] pointer-events-none flex items-end justify-end p-4">
   <div className="space-y-4 pointer-events-auto">
-    {message && (
-      <Alert
-        variant="default"
-        className="relative bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300 shadow-lg"
-      >
-        <button
-          onClick={() => setMessage(null)}
-          className="absolute top-1 right-1 text-green-800 dark:text-green-300 hover:text-green-500"
-        >
-          ✕
-        </button>
-        <CircleCheckIcon className="h-4 w-4" />
-        <AlertTitle>Success</AlertTitle>
-        <AlertDescription>{message}</AlertDescription>
-      </Alert>
-    )}
-    {error && (
-      <Alert
-        variant="default"
-        className="relative bg-red-100 text-red-400 dark:bg-red-900 dark:text-green-300 shadow-lg"
-      >
-        <button
-          onClick={() => setError(null)}
-          className="absolute top-1 right-1 text-red-400 dark:text-green-300 hover:text-red-600"
-        >
-          ✕
-        </button>
-        <CircleCheckIcon className="h-4 w-4" />
-        <AlertTitle>Error</AlertTitle>
-        <AlertDescription>{error}</AlertDescription>
-      </Alert>
-    )}
+    {message && ( <SuccessAlert success={message} setSuccess={setMessage} /> )}
+    {error && (<ErrorAlert error={error} setError={setError} /> )}
   </div>
 </div>
   </>
