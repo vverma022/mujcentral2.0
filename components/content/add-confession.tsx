@@ -14,14 +14,16 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import axios from 'axios';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { CircleCheckIcon } from 'lucide-react';
 
 export default function AddConfessionButton() {
   const [isOpen, setIsOpen] = useState(false);
   const [name, setName] = useState('');
   const [confession, setConfession] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState('');
-  const [message, setMessage] = useState('');
+  const [error, setError] = useState<string | null>('');
+  const [message, setMessage] = useState<string | null>('');
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -41,18 +43,19 @@ export default function AddConfessionButton() {
       });
       setName('');
       setConfession('');
-      const result = await response.data;
-      setMessage(result.message);
+      setMessage('Your confession has been submitted successfully.');
       setIsOpen(false);
     } catch (err) {
-      console.error('Error submitting confession:', err);
       setError('Failed to submit your confession. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
+
+
   return (
+    <>
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <Button size="lg" className="px-8">
@@ -66,9 +69,6 @@ export default function AddConfessionButton() {
           </DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
-          {error && (
-            <p className="text-center text-sm text-red-500">{error}</p>
-          )}
           <div className="space-y-2">
             <Label htmlFor="confession">Your Confession</Label>
             <Textarea
@@ -109,5 +109,42 @@ export default function AddConfessionButton() {
       {message && <p className="mt-2">{message}</p>}
       </DialogFooter>
     </Dialog>
+    <div className="fixed inset-0 z-[9999] pointer-events-none flex items-end justify-end p-4">
+  <div className="space-y-4 pointer-events-auto">
+    {message && (
+      <Alert
+        variant="default"
+        className="relative bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300 shadow-lg"
+      >
+        <button
+          onClick={() => setMessage(null)}
+          className="absolute top-1 right-1 text-green-800 dark:text-green-300 hover:text-green-500"
+        >
+          ✕
+        </button>
+        <CircleCheckIcon className="h-4 w-4" />
+        <AlertTitle>Success</AlertTitle>
+        <AlertDescription>{message}</AlertDescription>
+      </Alert>
+    )}
+    {error && (
+      <Alert
+        variant="default"
+        className="relative bg-red-100 text-red-400 dark:bg-red-900 dark:text-green-300 shadow-lg"
+      >
+        <button
+          onClick={() => setError(null)}
+          className="absolute top-1 right-1 text-red-400 dark:text-green-300 hover:text-red-600"
+        >
+          ✕
+        </button>
+        <CircleCheckIcon className="h-4 w-4" />
+        <AlertTitle>Error</AlertTitle>
+        <AlertDescription>{error}</AlertDescription>
+      </Alert>
+    )}
+  </div>
+</div>
+  </>
   );
 }

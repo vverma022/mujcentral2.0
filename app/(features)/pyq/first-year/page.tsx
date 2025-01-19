@@ -1,7 +1,9 @@
+import { PastYearPapers } from "@/components/papers/filters";
+import { cycles , papers } from "@/config/papers";
 export default function First_YearPage() {
     return (
         <>
-        <h1>Hello form First_Year Page</h1>
+         <PastYearPapers cycles={cycles} papers={papers} />
         </>
     )
 }

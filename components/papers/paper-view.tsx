@@ -1,69 +1,47 @@
-'use client'
-
-import { useState } from 'react'
-import { Document, Page, pdfjs } from 'react-pdf'
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
-import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
+import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/ui/card"
+import Link from 'next/link'
 
-// Set up the worker for react-pdf
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`
-
-interface PDFViewerProps {
-  pdfUrl: string
-  posterUrl: string
-  paperName: string
-  difficulty: 'easy' | 'medium' | 'hard'
+interface CompactRectangularPaperCardProps {
+  imageUrl: string
+  link: string
+  title: string
+  difficulty: 'Easy' | 'Medium' | 'Hard'
+  examType: 'MTE' | 'ETE'
 }
 
-export default function PDFViewer({ pdfUrl, posterUrl, paperName, difficulty }: PDFViewerProps) {
-  const [numPages, setNumPages] = useState<number | null>(null)
-
+export function RectangularPaperCard({ link, imageUrl, title, difficulty, examType }: CompactRectangularPaperCardProps) {
   const difficultyColor = {
-    easy: 'bg-green-500',
-    medium: 'bg-yellow-500',
-    hard: 'bg-red-500'
-  }
-
-  function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
-    setNumPages(numPages)
-  }
+    Easy: 'bg-green-100 text-green-800',
+    Medium: 'bg-yellow-100 text-yellow-800',
+    Hard: 'bg-red-100 text-red-800'
+  }[difficulty]
 
   return (
-    <div className="flex w-full max-w-2xl overflow-hidden rounded-xl shadow-lg">
-      <div className="w-1/2">
-        <Image src={posterUrl} alt={`Poster for ${paperName}`} className="size-full object-cover" />
+    <Link href={link}>
+     <Card className="overflow-hidden hover:shadow-md transition-shadow">
+      <div className="relative h-40 w-full">
+        <Image
+          src={imageUrl}
+          alt={title}
+          layout="fill"
+          objectFit="fill"
+        />
       </div>
-      <div className="flex w-1/2 flex-col justify-between bg-white p-6">
-        <div>
-          <h2 className="mb-2 text-2xl font-bold">{paperName}</h2>
-          <Badge className={`${difficultyColor[difficulty]} mb-4`}>
-            {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
+      <CardContent className="p-4">
+        <div className="flex justify-between items-start mb-2">
+          <h3 className="text-lg font-medium line-clamp-2 flex-grow text-gradient_indigo-purple">{title}</h3>
+          <Badge variant="outline" className="ml-2 shrink-0">
+            {examType}
           </Badge>
         </div>
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button className="w-full">
-              View
-              <ArrowRight className="ml-2 size-4" />
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="h-[80vh] w-full max-w-3xl">
-            <Document
-              file={pdfUrl}
-              onLoadSuccess={onDocumentLoadSuccess}
-              className="h-full overflow-auto"
-            >
-              {Array.from(new Array(numPages), (el, index) => (
-                <Page key={`page_${index + 1}`} pageNumber={index + 1} width={600} />
-              ))}
-            </Document>
-          </DialogContent>
-        </Dialog>
-      </div>
-    </div>
+        <div className={`inline-block px-2 py-1 rounded-full text-xs ${difficultyColor}`}>
+          {difficulty}
+        </div>
+      </CardContent>
+    </Card>
+  </Link>
   )
 }
 
