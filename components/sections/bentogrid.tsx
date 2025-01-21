@@ -4,7 +4,7 @@ import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 
 export default function BentoGrid() {
   return (
-    <section className="py-32">
+    <section className="py-24">
       <MaxWidthWrapper>
         <div className="relative z-10 grid grid-cols-6 gap-3">
           {/* First card */}

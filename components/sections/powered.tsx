@@ -1,6 +1,9 @@
 import Link from "next/link";
 
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
+import Redis from "@/public/_static/avatars/Redis_Favicon_16x16_White.svg"
+import Supabase from "@/public/_static/avatars/supabase-logo-wordmark--dark.svg"
+import Image from "next/image";
 
 const logos = [
   {
@@ -96,6 +99,20 @@ const logos = [
       </div>
     ),
   },
+  {
+    title: "Redis",
+    href: "https://redis.io/",
+    icon: (
+      <Image src={Redis} alt="Redis Logo" className="h-8 w-auto" />
+    ),
+  },
+  {
+    title: "Supabase",
+    href: "https://supabase.io/",
+    icon: (
+      <Image src={Supabase} alt="Supabase Logo" className="h-8 w-auto" />
+    ),
+  },
 ];
 
 export default function Powered() {
@@ -106,28 +123,14 @@ export default function Powered() {
           Powered by
         </h2>
 
-        <div className="mt-10 grid grid-cols-2 place-items-center gap-8 md:grid-cols-4">
-          {logos.slice(0, 4).map((logo) => (
+        <div className="mt-10 grid grid-cols-2 place-items-center gap-8 md:grid-cols-6">
+          {logos.slice(0, 6).map((logo) => (
             <Link
               target="_blank"
               key={logo.title}
               href={logo.href}
               aria-label={logo.title}
-              className="duration-250 grayscale transition hover:text-foreground hover:grayscale-0"
-            >
-              {logo.icon}
-            </Link>
-          ))}
-        </div>
-
-        <div className="mt-8 grid grid-cols-2 place-items-center gap-8 md:mt-10 md:grid-cols-4">
-          {logos.slice(4, 8).map((logo) => (
-            <Link
-              target="_blank"
-              key={logo.title}
-              href={logo.href}
-              aria-label={logo.title}
-              className="duration-250 grayscale transition hover:text-foreground hover:grayscale-0"
+              className="duration-250 grayscale transition text-foreground hover:grayscale-0"
             >
               {logo.icon}
             </Link>
