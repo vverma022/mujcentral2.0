@@ -33,6 +33,6 @@
     ".next/types/**/*.ts",
     ".contentlayer/generated",
     "contentlayer.config.ts"
-  ],
+, "app/pages/404.tsx"  ],
   "exclude": ["node_modules"]
 }

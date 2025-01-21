@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { Share2 } from "lucide-react";
 import { Instagram, Facebook, Copy, MessageCircle } from "lucide-react"; 
 
@@ -35,8 +36,8 @@ export default function ShareButton() {
       <Button variant="ghost" size="sm">
         <Share2 className="mr-2 size-4" />
       </Button>
-      
     </DialogTrigger>
+    <VisuallyHidden><DialogTitle></DialogTitle></VisuallyHidden>
     <DialogContent>
       <div className="flex flex-col items-center space-y-4">
         <h2 className="text-gradient_indigo-purple text-foreground ">Share this Post</h2>
