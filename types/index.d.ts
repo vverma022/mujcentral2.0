@@ -88,6 +88,7 @@ export type InfoLdg = {
 };
 
 export type FeatureLdg = {
+  id: number;
   title: string;
   description: string;
   link: string;

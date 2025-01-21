@@ -41,7 +41,7 @@ export function ContactButton() {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle className='text-gradient_indigo-purple text-center'>Contact Us</DialogTitle>
+          <DialogTitle className='text-gradient_indigo-purple text-center font-heading'>Contact Us</DialogTitle>
         </DialogHeader>
         <form onSubmit={onSubmit} className="space-y-4">
           <div className="space-y-2">
@@ -56,7 +56,7 @@ export function ContactButton() {
             <Label htmlFor="message">Message</Label>
             <Textarea id="message" name="message" required />
           </div>
-          <Button type="submit" className='items-center'>Send Message</Button>
+          <Button type="submit" variant="secondary" className='flex justify-center items-center'>Send Message</Button>
         </form>
       </DialogContent>
     </Dialog>

@@ -29,6 +29,7 @@ export const infos: InfoLdg[] = [
 
 export const features: FeatureLdg[] = [
   {
+    id: 1,
     title: "First Year Papers",
     description:
       "Papers for the first year students of Manipal University Jaipur for both physics and chemistry cycles.",
@@ -36,6 +37,7 @@ export const features: FeatureLdg[] = [
     icon: "college",
   },
   {
+    id: 2,
     title: "Second Year Papers",
     description:
       "Papers for the second year students of Manipal University Jaipur for various courses.",
@@ -43,6 +45,7 @@ export const features: FeatureLdg[] = [
     icon: "college",
   },
   {
+    id: 3,
     title: "Third Year Papers",
     description:
       "Papers for the third year students of Manipal University Jaipur for various courses.",

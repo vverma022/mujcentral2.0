@@ -65,7 +65,7 @@ export default function AddConfessionButton() {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle className="text-gradient_indigo-purple text-center">
+          <DialogTitle className="text-gradient_indigo-purple text-center font-heading">
             Add New Confession
           </DialogTitle>
         </DialogHeader>

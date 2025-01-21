@@ -2,11 +2,8 @@ import Image from 'next/image'
 import ConfessionList from '@/components/content/confession-list'
 import AddConfessionButton from '@/components/content/add-confession'
 import Poster from '@/public/_static/avatars/podcast-man.svg'
-import { InfoLdg } from "@/types";
 import { cn } from "@/lib/utils";
-import { Icons } from "@/components/shared/icons";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
-import { ConfessHeaderLayout } from '@/components/content/confession-header';
 
 
 
@@ -19,13 +16,12 @@ export default function ConfessionsPage() {
     <div className={cn("overflow-hidden rounded-xl border lg:-m-4")}>
       <div className="aspect-video">
         <Image
-          className="size-full object-center"
+          className="size-full object-center bg-gray-100"
           src={Poster}
           alt="People sharing their confessions"
           width={1000}
           height={500}
           priority={true}
-          style={{backgroundColor: 'white'}}
         />
       </div>
     </div>

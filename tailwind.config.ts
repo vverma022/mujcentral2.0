@@ -143,6 +143,11 @@ const config = {
   					opacity: '1'
   				}
   			},
+			  scroll: {
+				to: {
+				  transform: "translate(calc(-50% - 0.5rem))",
+				},
+			  },
   			marquee: {
   				from: {
   					transform: 'translateX(0)'
@@ -168,7 +173,8 @@ const config = {
   			'fade-in': 'fade-in 0.4s',
   			'fade-out': 'fade-out 0.4s',
   			marquee: 'marquee var(--duration) infinite linear',
-  			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite'
+  			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
+			scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
   		}
   	}
   },

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
 import { uniqueNamesGenerator,adjectives, colors, animals } from 'unique-names-generator';
-import {parse,serialize} from 'cookie';
+import {parse , serialize} from 'cookie'
 
 const prisma = new PrismaClient();
 
