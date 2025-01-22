@@ -55,6 +55,42 @@ export const firstYearPapers: Record<string, Paper[]> = {
       difficulty: 'H',
       examType: 'MTE',
     },
+    {
+      id: 6,
+      title: 'CM',
+      name: 'Computational Mathematics',
+      link: "https://drive.google.com/file/d/1F25jn0d881fLX5yk1I5cXz2Rio6fUAKn/view?usp=share_link",
+      image: R4,
+      difficulty: 'H',
+      examType: 'ETE',
+    },
+    {
+      id: 7,
+      title: 'EMM',
+      name: 'Engineering Materials & Mechanics',
+      link: "https://drive.google.com/file/d/1LGSartdTWUoN6BQTW8aUcDzU87Np2YM8/view?usp=share_link",
+      image: R1,
+      difficulty: 'H',
+      examType: 'ETE',
+    },
+    {
+      id: 8,
+      title: 'EP',
+      name: 'Engineering Physics',
+      link: "https://drive.google.com/file/d/1HA26shbiVKfPYOvLPLTsTpOjz3vAnNE4/view?usp=share_link",
+      image: R3,
+      difficulty: 'M',
+      examType: 'ETE',
+    },
+    {
+      id: 9,
+      title: 'MFE',
+      name: 'Matlab for Engineers',
+      link: "https://drive.google.com/file/d/1KX0IYXKy6GOpgVl3bpy8d_gbuejIlqwS/view?usp=share_link",
+      image: R2,
+      difficulty: 'M',
+      examType: 'ETE',
+    }
   ],
   Chemistry: [
     {
