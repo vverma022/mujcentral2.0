@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 
 import { fontGeist, fontHeading, fontSans, fontUrban } from "@/assets/fonts";
 import { ThemeProvider } from "next-themes";
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { cn, constructMetadata } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from "@/components/analytics";
@@ -36,6 +36,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           >
             <CookieConsentBanner />
             {children}
+            <SpeedInsights />
             <Analytics />
             <Toaster richColors closeButton />
             <TailwindIndicator />
