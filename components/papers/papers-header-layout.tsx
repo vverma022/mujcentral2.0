@@ -1,7 +1,7 @@
 "use server";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 
-export function PapersHeaderLayout() {
+export async function PapersHeaderLayout() {
     return(
         <MaxWidthWrapper className="py-6 md:pb-8 md:pt-10">
     <div className="max-w-screen-sm">

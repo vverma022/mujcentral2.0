@@ -1,4 +1,3 @@
-"use server";
 import Image from 'next/image'
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
@@ -13,7 +12,7 @@ interface CompactRectangularPaperCardProps {
   examType: 'MTE' | 'ETE'
 }
 
-export function RectangularPaperCard({ link, imageUrl, title, name , difficulty, examType }: CompactRectangularPaperCardProps) {
+export  function RectangularPaperCard({ link, imageUrl, title, name , difficulty, examType }: CompactRectangularPaperCardProps) {
   const difficultyColor = {
     E: 'bg-green-100 text-green-800',
     M: 'bg-yellow-100 text-yellow-800',

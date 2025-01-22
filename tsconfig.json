@@ -33,6 +33,6 @@
     ".next/types/**/*.ts",
     ".contentlayer/generated",
     "contentlayer.config.ts"
-, "app/pages/404.tsx"  ],
+, "app/pages/404.tsx", "eslint.config.js"  ],
   "exclude": ["node_modules"]
 }
