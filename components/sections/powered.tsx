@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
-import Redis from "@/public/_static/avatars/Redis_Favicon_16x16_White.svg"
-import Supabase from "@/public/_static/avatars/supabase-logo-wordmark--dark.svg"
+import Redis from "@/public/_static/avatars/Redis_Mark_Red_RGB.png"
+import Supabase from "@/public/_static/avatars/supabase-logo-wordmark--light.svg"
 import Image from "next/image";
 
 const logos = [
@@ -103,7 +103,7 @@ const logos = [
     title: "Redis",
     href: "https://redis.io/",
     icon: (
-      <Image src={Redis} alt="Redis Logo" className="h-8 w-auto" />
+      <Image src={Redis} alt="Redis Logo" className="h-8 w-auto " />
     ),
   },
   {
@@ -130,7 +130,7 @@ export default function Powered() {
               key={logo.title}
               href={logo.href}
               aria-label={logo.title}
-              className="duration-250 grayscale transition text-foreground hover:grayscale-0"
+              className="duration-250 backdrop-grayscale-0 transition text-foreground"
             >
               {logo.icon}
             </Link>

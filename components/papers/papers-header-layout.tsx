@@ -1,3 +1,4 @@
+"use server";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 
 export function PapersHeaderLayout() {

@@ -42,4 +42,14 @@ const testimonials = [
           "name": "Moksh Gupta",
           "title": "Second Year CSE-C"
         },
+        {
+          "quote": "Contributed 10+ papers to the project",
+          "name": "Varun Narayan Jain",
+          "title": "Second Year CCE"
+        },
+        {
+          "quote": "",
+          "name": "Badass Bhai",
+          "title": "Third Year IT"
+        },
 ];

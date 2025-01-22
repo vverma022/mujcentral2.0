@@ -11,7 +11,7 @@ interface Paper {
   name: string,
   link?: string
   image?: string
-  difficulty?: 'E' | 'M' | 'H'
+  difficulty?: "E" | "M" | "H" ;
   examType?: 'ETE' | 'MTE'
 
 }
@@ -63,7 +63,7 @@ export function PastYearPapers({ cycles, papers }: PastYearPapersProps) {
         </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {papers[selectedCycle].map((paper) => (
-          <RectangularPaperCard key={paper.id} name ={paper.name} link={paper.link || ''} imageUrl={paper.image || D.src } title={paper.title} difficulty={paper.difficulty || "E"} examType={paper.examType || "MTE"} />
+          <RectangularPaperCard key={paper.id} name ={paper.name} link={paper.link || ''} imageUrl={paper.image || D.src } title={paper.title} difficulty={paper.difficulty || 'E'} examType={paper.examType || "MTE"} />
         ))}
       </div>
     </div>

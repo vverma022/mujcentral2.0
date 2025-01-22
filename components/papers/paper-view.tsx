@@ -1,3 +1,4 @@
+"use server";
 import Image from 'next/image'
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
@@ -8,7 +9,7 @@ interface CompactRectangularPaperCardProps {
   link: string
   title: string,
   name: string,
-  difficulty: 'E' | 'M' | 'H'
+  difficulty: "E" | "M" | "H" ;
   examType: 'MTE' | 'ETE'
 }
 

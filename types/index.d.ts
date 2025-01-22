@@ -101,3 +101,13 @@ export type TestimonialType = {
   image: string;
   review: string;
 };
+
+export type Paper = {
+  id: number;
+  title: string;
+  name: string;
+  link: string;
+  image: any; // Replace `any` with a specific type, e.g., `string` for URLs
+  difficulty: 'H' | 'M' | 'E'; // Hard, Medium, Easy
+  examType: 'MTE' | 'ETE'; // Mid Term Exam or End Term Exam
+};
