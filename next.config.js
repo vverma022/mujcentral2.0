@@ -23,6 +23,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/vks",
+        destination: "https://www.linkedin.com/in/vansh-kumar-singh-711924204", // Replace with your LinkedIn profile URL
+        permanent: false, // Use false for a 302 (temporary) redirect
+      },
+    ];
+  },
   serverExternalPackages: ["@prisma/client"], // Updated key from experimental.serverComponentsExternalPackages
 };
 

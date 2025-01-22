@@ -48,7 +48,7 @@ const testimonials = [
           "title": "Second Year CCE"
         },
         {
-          "quote": "",
+          "quote": "Once in the System, Always in the System",
           "name": "Badass Bhai",
           "title": "Third Year IT"
         },
