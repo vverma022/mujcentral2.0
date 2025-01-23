@@ -1,9 +1,28 @@
+ // @ts-nocheck
+
 import { NextRequest, NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
 import { uniqueNamesGenerator,adjectives, colors, animals } from 'unique-names-generator';
 import {parse , serialize} from 'cookie'
+import redis from '@/lib/redis';
 
 const prisma = new PrismaClient();
+const confessionqueue = 'confessionqueue';
+
+
+setInterval(async () => {
+  const confessions = [];
+  let confession;
+  while ((confession = await redis.lpop(confessionqueue))) {
+      confessions.push(JSON.parse(confession));
+  }
+
+  if (confessions.length > 0) {
+    console.log("Writing batch to database:", confessions);
+    await prisma.confession.createMany({ data: confessions });
+  }
+}, 30000);
+
 
 export async function POST(req: NextRequest) {
   try {
@@ -63,11 +82,13 @@ export async function POST(req: NextRequest) {
       JSON.stringify({ uuid, confessionCount: updatedCount, lastReset: updatedLastReset }),
       {
         httpOnly: true,
-        secure: false, //for local development for production set to true; 
+        secure: false, 
         path: "/",
         sameSite: "strict",
       }
     );
+
+    await redis.rpush(confessionqueue, JSON.stringify(newConfession));
 
     const response = NextResponse.json(newConfession, { status: 201 });
     response.headers.set("Set-Cookie", cookie);

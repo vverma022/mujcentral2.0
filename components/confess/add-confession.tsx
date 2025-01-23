@@ -1,5 +1,4 @@
 'use client'
-
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import {
@@ -15,6 +14,8 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import axios from 'axios';
 import { ErrorAlert, SuccessAlert } from '../shared/alearts';
+
+const fetcher = (url: string | URL | Request) => fetch(url).then((res) => res.json());
 
 export default function AddConfessionButton() {
   const [isOpen, setIsOpen] = useState(false);

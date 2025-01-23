@@ -2,18 +2,14 @@
 import useSWR from 'swr';
 import ConfessionPost from './confession-post';
 import MaxWidthWrapper from '../shared/max-width-wrapper';
-import axios from 'axios';
-import { Key } from 'react';
 
-const fetcher = (url: string) => axios.get(url).then((res) => res.data);
+const fetcher = (url: string | URL | Request) => fetch(url).then((res) => res.json());
 
+export default function ConfessionList() {
+  const { data: confessions, error } = useSWR("/api/confess/fetch", fetcher);
 
-export default function ConfessionList({ initialData }) {
-  const { data: confessions, error } = useSWR('/api/confess/fetch', fetcher, {
-    fallbackData: initialData, // Use SSR-fetched data initially
-  });
-
-  if (error) return <p className='text-center'>Failed to load confessions. Please try again later.</p>;
+  if (error) return <p className="text-center">Failed to load confessions.</p>;
+  if (!confessions) return <p className="text-center">Loading confessions...</p>;
 
   return (
     <MaxWidthWrapper className="py-6 md:pb-8 md:pt-10">
