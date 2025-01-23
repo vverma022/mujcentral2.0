@@ -107,15 +107,15 @@ export default function BentoGrid() {
           </div>
 
           {/* Third card */}
-          <div className="relative col-span-full overflow-hidden rounded-2xl border bg-background p-8 sm:col-span-3 lg:col-span-2">
-            <Image
-          src={Poster}
-          alt="Poster"
-          layout="fill"
-          objectFit="fill"
-          className="bg-white dark:bg-black"
-        />
-          </div>
+          <div className="relative col-span-full overflow-hidden rounded-2xl border  bg-background p-8 sm:col-span-3 lg:col-span-2 h-64 sm:h-80 lg:h-96">
+           <Image
+           src={Poster}
+           alt="Poster"
+           layout="fill"
+           objectFit="fill"  // `fill` can distort the image, `cover` ensures it maintains its aspect ratio
+           className="bg-white dark:bg-black"
+           />
+           </div>
 
           {/* Second row */}
           <div className="relative col-span-full overflow-hidden rounded-2xl border bg-background p-8 lg:col-span-3">
