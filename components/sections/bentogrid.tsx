@@ -1,17 +1,11 @@
 import Image from "next/image";
-import { AnimatedTooltip } from "../ui/animated-tooltip";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
-import { Boxes } from "../ui/background-boxes";
-import { cn } from "@/lib/utils";
+import Poster from "@/public/_static/illustrations/call-waiting.svg";
+import { TextGenerateEffect } from "../ui/text-generate-effect";
 
-const people = [
-  {
-    id: 1,
-    name: "Anonymous",
-    designation: "Nerd",
-    image:"https://avatars.githubusercontent.com/u/109036913?v=4",
-  },
-];
+const words = `Help your pepration and have some fun with MUJ-Central-2.0
+`;
+
 
 export default function BentoGrid() {
 
@@ -114,24 +108,19 @@ export default function BentoGrid() {
 
           {/* Third card */}
           <div className="relative col-span-full overflow-hidden rounded-2xl border bg-background p-8 sm:col-span-3 lg:col-span-2">
-          <div className="flex items-center justify-center w-full h-full">
-             <AnimatedTooltip items={people} />
-           </div>
+            <Image
+          src={Poster}
+          alt="Poster"
+          layout="fill"
+          objectFit="fill"
+          className="bg-white dark:bg-black"
+        />
           </div>
 
           {/* Second row */}
-          <div className="relative col-span-full overflow-hidden rounded-2xl border p-8 lg:col-span-3 animate-gradient">
-      <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
-      <Boxes />
-      <div className="flex flex-col items-center justify-center h-full w-full">
-  <h1 className={cn("md:text-4xl text-xl text-white relative z-20 font-heading")}>
-     For All Your Needs
-  </h1>
-  <p className="text-center mt-2 text-neutral-300 relative z-20">
-    Central place for all your needs, from academics to entertainment
-  </p>
-</div>
-         </div>
+          <div className="relative col-span-full overflow-hidden rounded-2xl border bg-background p-8 lg:col-span-3">
+          <TextGenerateEffect words={words} />
+        </div>
 
           <div className="relative col-span-full overflow-hidden rounded-2xl border bg-background p-8 lg:col-span-3">
             <div className="grid h-full sm:grid-cols-2">
