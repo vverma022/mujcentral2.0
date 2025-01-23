@@ -11,24 +11,31 @@ import { SuccessAlert } from './alearts'
 import { ErrorAlert } from './alearts'
 
 export function ContactButton() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false); // Controls modal/dialog state
   const [message, setMessage] = useState<string | null>(null); // Success message
   const [error, setError] = useState<string | null>(null); // Error message
+  const [isSubmitting, setIsSubmitting] = useState(false); // Submission state
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
 
+    setIsSubmitting(true); // Start submission
+    setMessage(null); // Reset success message
+    setError(null); // Reset error message
+
     try {
-      const result = await sendEmail(formData);
+      const result = await sendEmail(formData); // Assume sendEmail is defined elsewhere
       if (result.success) {
         setMessage("Your message has been sent successfully!");
-        setOpen(false); // Close the dialog
+        setOpen(false); // Close the dialog if needed
       } else {
         setError("Something went wrong.");
       }
     } catch (err: any) {
       setError(err.message || "Something went wrong.");
+    } finally {
+      setIsSubmitting(false); // End submission
     }
   }
 
@@ -59,12 +66,8 @@ export function ContactButton() {
               <Label htmlFor="message">Message</Label>
               <Textarea id="message" name="message" required />
             </div>
-            <Button
-              type="submit"
-              variant="secondary"
-              className="flex justify-center items-center"
-            >
-              Send Message
+            <Button type="submit" className="w-full" disabled={isSubmitting}>
+            {isSubmitting ? 'Submitting...' : 'Submit Confession'}
             </Button>
           </form>
         </DialogContent>

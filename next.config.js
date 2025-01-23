@@ -21,6 +21,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "res.cloudinary.com", // Added Cloudinary domain
       },
+      {
+        protocol: "https",
+        hostname: "notion-avatar.vercel.app", // Corrected notion-avatar hostname
+      },
     ],
   },
   async redirects() {

@@ -16,7 +16,7 @@ export const firstYearPapers: Record<string, Paper[]> = {
       name: 'Engineering Materials & Mechanics',
       link: 'https://drive.google.com/file/d/1ry8fX9j_Iaee5xlWQlcLf0cUSXGDL7yc/view?usp=share_link',
       image: R1,
-      difficulty: 'H', // Valid "H" (Hard)
+      difficulty: 'M', // Valid "H" (Hard)
       examType: 'MTE', // Valid exam type
     },
     {
@@ -43,7 +43,7 @@ export const firstYearPapers: Record<string, Paper[]> = {
       name: 'Biology for Engineers',
       link: 'https://drive.google.com/file/d/1_D2WDDZdVpyeTFbC2AkmAdumQgfSlEtH/view?usp=share_link',
       image: R2,
-      difficulty: 'M',
+      difficulty: 'E',
       examType: 'MTE',
     },
     {
@@ -52,7 +52,7 @@ export const firstYearPapers: Record<string, Paper[]> = {
       name: 'Computational Mathematics',
       link: 'https://drive.google.com/file/d/1tepB8K6GoUyoWetNum_RpiTpDBI9Dow0/view?usp=share_link',
       image: R3,
-      difficulty: 'H',
+      difficulty: 'M',
       examType: 'MTE',
     },
     {
@@ -88,6 +88,15 @@ export const firstYearPapers: Record<string, Paper[]> = {
       name: 'Matlab for Engineers',
       link: "https://drive.google.com/file/d/1KX0IYXKy6GOpgVl3bpy8d_gbuejIlqwS/view?usp=share_link",
       image: R2,
+      difficulty: 'H',
+      examType: 'ETE',
+    },
+    {
+      id: 10,
+      title: 'BFE',
+      name: 'Biology for Engineers',
+      link: "https://drive.google.com/file/d/1S2fdpeS5HsGpxXDJUYSRvGTU0UDDhdij/view?usp=share_link",
+      image: R4,
       difficulty: 'M',
       examType: 'ETE',
     }
@@ -95,13 +104,76 @@ export const firstYearPapers: Record<string, Paper[]> = {
   Chemistry: [
     {
       id: 1,
-      title: 'OS',
-      name: 'Operating Systems',
-      link: 'https://drive.google.com/folder/example',
+      title: 'CM',
+      name: 'Calculus & Matrices',
+      link: 'https://drive.google.com/file/d/1IM8MoqrkKJ9_Ovi2hJGWcCRS7qGchICm/view?usp=share_link',
+      image: R3,
+      difficulty: 'M',
+      examType: 'ETE',
+    },
+    {
+      id: 2,
+      title: 'EC',
+      name: 'Engineering Chemistry',
+      link: 'https://drive.google.com/file/d/1zCQjydZoRU57EJfXH-1eDfxRxrotNM9s/view?usp=share_link',
       image: R4,
       difficulty: 'M',
       examType: 'MTE',
     },
+    {
+      id: 3,
+      title: 'EC',
+      name: 'Engineering Chemistry',
+      link: 'https://drive.google.com/file/d/1amZa-e7h4FhwUktMuanmCKM-4Arbfc0z/view?usp=share_link',
+      image: R1,
+      difficulty: 'H',
+      examType: 'ETE',
+    },
+    {
+      id: 4,
+      title: 'EES',
+      name: 'Electronics & Electrical Systems',
+      link: 'https://drive.google.com/file/d/1rB0rEIh2wU3ikrsZBiE55zs-9Uj80BzZ/view?usp=share_link',
+      image: R2,
+      difficulty: 'M',
+      examType: 'MTE',
+    },
+    {
+      id: 5,
+      title: 'EES',
+      name: 'Electronics & Electrical Systems',
+      link: 'https://drive.google.com/file/d/1ICmAanBNZNNndEg90kX3y7OHzVMI7UEp/view?usp=share_link',
+      image: R2,
+      difficulty: 'H',
+      examType: 'ETE',
+    },
+    {
+      id: 6,
+      title: 'PSUC',
+      name: 'Problem Solving Using C',
+      link: 'https://drive.google.com/file/d/1qGoIPfc7G4cPY-6QaYWozu-TV2p8capR/view?usp=share_link',
+      image: R3,
+      difficulty: 'M',
+      examType: 'MTE',
+    },
+    {
+      id: 7,
+      title: 'PSUC',
+      name: 'Problem Solving Using C',
+      link: 'https://drive.google.com/file/d/1fCNcIUOxIOUc6rCEQSmB1yvGgZ_xxWQK/view?usp=share_link',
+      image: R4,
+      difficulty: 'H',
+      examType: 'ETE',
+    },
+    {
+      id: 8,
+      title: 'TWC',
+      name: 'Technical Writing Clinic',
+      link: 'https://drive.google.com/file/d/1g1LK9luWV1RDeiDWMhgXFn4ZF1dXtsO5/view?usp=share_link',
+      image: R3,
+      difficulty: 'E',
+      examType: 'ETE',
+      }
   ],
 };
 
