@@ -1,0 +1,13 @@
+name: Refresh Cache
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Every hour
+
+jobs:
+  refresh-cache:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Refresh API
+        run: |
+          curl -X POST https://mujcentral2-0.vercel.app/api/confess/refresh

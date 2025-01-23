@@ -1,17 +1,18 @@
 "use client";
 import useSWR from 'swr';
-import ConfessionPost from '../confess/confession-post';
+import ConfessionPost from './confession-post';
 import MaxWidthWrapper from '../shared/max-width-wrapper';
+import axios from 'axios';
+import { Key } from 'react';
 
-const fetcher = (url) => fetch(url).then((res) => {
-  if (!res.ok) throw new Error('Failed to fetch confessions');
-  return res.json();
-});
+const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
-export default function ConfessionList() {
-  const { data: confessions, error, isLoading } = useSWR('/api/confess/fetch', fetcher);
 
-  if (isLoading) return <p className='text-center'>Loading confessions...</p>;
+export default function ConfessionList({ initialData }) {
+  const { data: confessions, error } = useSWR('/api/confess/fetch', fetcher, {
+    fallbackData: initialData, // Use SSR-fetched data initially
+  });
+
   if (error) return <p className='text-center'>Failed to load confessions. Please try again later.</p>;
 
   return (
@@ -20,10 +21,14 @@ export default function ConfessionList() {
         <h1 className="pb-2 font-heading text-3xl md:text-4xl">Confessions</h1>
       </div>
       <div className="mt-6 grid grid-cols-1 gap-2 md:grid-cols-4">
-        {confessions.map((confession: { username: string, confession: string, id: number }) => (
-          <ConfessionPost key={confession.id} username={confession.username} confession={confession.confession} />
-        ))}
-      </div>
+         {confessions?.map((confession: { id: any; username: string; confession: string; }, index: any) => (
+       <ConfessionPost 
+      key={confession.id ?? index} 
+      username={confession.username} 
+      confession={confession.confession} 
+    />
+  ))}
+</div>
     </MaxWidthWrapper>
   );
 }

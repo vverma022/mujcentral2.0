@@ -14,8 +14,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import axios from 'axios';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { CircleCheckIcon } from 'lucide-react';
 import { ErrorAlert, SuccessAlert } from '../shared/alearts';
 
 export default function AddConfessionButton() {
@@ -99,6 +97,9 @@ export default function AddConfessionButton() {
             <p className="text-center text-xs text-muted-foreground">
               Provided name will be hashed and securely stored in our database
               for security reasons.
+            </p>
+            <p className="text-center text-sm text-muted-foreground">
+               You can submit more confessions this week.
             </p>
           </div>
           <Button type="submit" className="w-full" disabled={isSubmitting}>
