@@ -1,16 +1,8 @@
-"use client";
-import useSWR from 'swr';
+"use server";
 import ConfessionPost from './confession-post';
 import MaxWidthWrapper from '../shared/max-width-wrapper';
 
-const fetcher = (url: string | URL | Request) => fetch(url).then((res) => res.json());
-
-export default function ConfessionList() {
-  const { data: confessions, error } = useSWR("/api/confess/fetch", fetcher);
-
-  if (error) return <p className="text-center">Failed to load confessions.</p>;
-  if (!confessions) return <p className="text-center">Loading confessions...</p>;
-
+export default async function ConfessionList({ confessions }) {
   return (
     <MaxWidthWrapper className="py-6 md:pb-8 md:pt-10">
       <div className="max-w-screen-sm">

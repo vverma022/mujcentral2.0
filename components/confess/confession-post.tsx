@@ -1,4 +1,4 @@
-"use client"
+"use server";
 
 import { Card, CardContent,CardFooter } from "@/components/ui/card"
 import ShareButton from '../shared/sharebutton'
@@ -8,7 +8,7 @@ interface ConfessionPostProps {
   username: string
 }
 
-export default function ConfessionPost({ confession, username}: ConfessionPostProps) {
+export default async function ConfessionPost({ confession, username}: ConfessionPostProps) {
   return (
     <Card className="w-full max-w-[280px] mx-auto shadow-md overflow-hidden">
       <CardContent className="p-0">
@@ -21,7 +21,7 @@ export default function ConfessionPost({ confession, username}: ConfessionPostPr
       </CardContent>
       <CardFooter className="flex justify-between items-center p-2">
         <span className="font-semibold  text-xs">{username}</span>
-        <ShareButton />
+        <ShareButton confession={confession} username={username} />
       </CardFooter>
     </Card>
   )

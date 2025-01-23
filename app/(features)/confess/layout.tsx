@@ -2,7 +2,7 @@ import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 import { ConfessHeaderLayout } from '@/components/confess/confession-header';
 import { ConfessPoster } from "@/components/confess/confess-poster";
 
-export default function BlogLayout({
+export default function ConfessionLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -11,7 +11,7 @@ export default function BlogLayout({
     <>
      <ConfessHeaderLayout />
      <ConfessPoster />
-      <MaxWidthWrapper className="pb-16">{children}</MaxWidthWrapper>
+     <MaxWidthWrapper className="pb-16">{children}</MaxWidthWrapper>
     </>
   );
 }

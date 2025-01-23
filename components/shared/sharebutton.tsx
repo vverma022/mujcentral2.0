@@ -5,15 +5,28 @@ import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { Share2 } from "lucide-react";
 import { Instagram, Facebook, Copy, MessageCircle } from "lucide-react"; 
+import { useEffect, useState } from "react";
 
-export default function ShareButton() {
-    
+
+export default function ShareButton({ confession, username }: { confession: string, username: string }) {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true); // Set to true when the component is mounted on the client side
+  }, []);
+
   const sharePost = () => {
+    if (!isClient) return; // Make sure we only access `window` on the client side
+
     const url = window.location.href;
+    const title = username ? `${username}'s Confession` : 'Check out this confession!';
+    const text = confession || "Check out this amazing confession!";
+
     if (navigator.share) {
       navigator
         .share({
-          title: "Check out this post!",
+          title,
+          text,
           url,
         })
         .then(() => console.log("Post shared successfully"))
@@ -24,28 +37,30 @@ export default function ShareButton() {
   };
 
   const copyLink = () => {
+    if (!isClient) return; // Prevent accessing window on the server side
+
     const url = window.location.href;
     navigator.clipboard.writeText(url).then(() => {
       alert("Link copied to clipboard!");
     });
   };
 
+  if (!isClient) return null; // Prevent rendering the button on the server side
+
   return (
     <Dialog>
-    <DialogTrigger asChild>
-      <Button variant="ghost" size="sm">
-        <Share2 className="mr-2 size-4" />
-      </Button>
-    </DialogTrigger>
-    <VisuallyHidden><DialogTitle></DialogTitle></VisuallyHidden>
-    <DialogContent>
-      <div className="flex flex-col items-center space-y-4">
-        <h2 className="text-gradient_indigo-purple text-foreground ">Share this Post</h2>
-          <>
+      <DialogTrigger asChild>
+        <Button variant="ghost" size="sm" onClick={sharePost}>
+          <Share2 className="mr-2 size-4" />
+        </Button>
+      </DialogTrigger>
+      <VisuallyHidden><DialogTitle>Share Post</DialogTitle></VisuallyHidden>
+      <DialogContent>
+        <div className="flex flex-col items-center space-y-4">
+          <h2 className="text-gradient_indigo-purple text-foreground">Share this Post</h2>
+          <div className="flex flex-col space-y-2 w-full">
             <a
-              href={`https://www.instagram.com/?url=${encodeURIComponent(
-                window.location.href
-              )}`}
+              href={`https://www.instagram.com/?url=${encodeURIComponent(window.location.href)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full"
@@ -57,9 +72,7 @@ export default function ShareButton() {
             </a>
 
             <a
-              href={`https://wa.me/?text=${encodeURIComponent(
-                window.location.href
-              )}`}
+              href={`https://wa.me/?text=${encodeURIComponent(window.location.href)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full"
@@ -71,9 +84,7 @@ export default function ShareButton() {
             </a>
 
             <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-                window.location.href
-              )}`}
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full"
@@ -92,9 +103,9 @@ export default function ShareButton() {
               <Copy className="mr-2 size-4" />
               Copy Link
             </Button>
-          </>
-      </div>
-    </DialogContent>
-  </Dialog>
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
   );
 }
