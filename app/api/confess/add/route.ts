@@ -36,10 +36,10 @@ export async function POST(req: NextRequest) {
     updatedLastReset = now;
   }
 
-  if (updatedCount >= 2) {
+  if (updatedCount >= 14) {
     return NextResponse.json({
       success: false,
-      message: "You can only submit 2 confessions per week.",
+      message: "You can only submit 14 confessions per week.",
     },{status: 403});
   }
     
