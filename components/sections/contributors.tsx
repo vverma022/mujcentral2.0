@@ -5,7 +5,7 @@ import { HeaderSection } from "@/components/shared/header-section";
 
 export function InfiniteMovingCardsDemo() {
   return (
-    <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+    <div className="h-[40rem] rounded-md flex flex-col antialiased  dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
          <HeaderSection
           label="Contributors"
           title="Thanks to the Manipal Community"
@@ -15,7 +15,7 @@ export function InfiniteMovingCardsDemo() {
         items={testimonials}
         direction="right"
         speed="slow"
-        className="py-2"
+        className="py-1"
       />
     </div>
   );

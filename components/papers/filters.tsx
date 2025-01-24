@@ -4,29 +4,25 @@ import { useState } from "react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { RectangularPaperCard } from "./paper-view"
 import D from "@/public/_static/illustrations/ai-collaboration.jpg"
+import PapersHeaderLayout from "./papers-header-layout"
+import MaxWidthWrapper from "../shared/max-width-wrapper"
+import { Paper } from "@/types"
 
-interface Paper {
-  id: number
-  title: string,
-  name: string,
-  link?: string
-  image?: string
-  difficulty?: "E" | "M" | "H" ;
-  examType?: 'ETE' | 'MTE'
-
-}
 
 interface PastYearPapersProps {
-  cycles: string[]
+  categories: string[]
   papers: Record<string, Paper[]>
+  year: string
 }
 
-export function PastYearPapers({ cycles, papers }: PastYearPapersProps) {
-  const [selectedCycle, setSelectedCycle] = useState(cycles[0]);
+export function PastYearPapers({ categories , papers , year }: PastYearPapersProps) {
+  const [selectedCycle, setSelectedCycle] = useState(categories[0]);
   const [selectedExamType, setSelectedExamType] = useState('MTE');
 
   return (
-    <div className="w-full">
+    <MaxWidthWrapper>
+    <PapersHeaderLayout year={year} />
+    <div className="w-full mt-4">
     <div className="mb-8">
       <h3 className="font-heading text-2xl md:text-4xl mb-4">Filters</h3>
       <div className="inline-flex gap-x-2">
@@ -36,7 +32,7 @@ export function PastYearPapers({ cycles, papers }: PastYearPapersProps) {
               <SelectValue placeholder="Select a cycle" />
             </SelectTrigger>
             <SelectContent>
-              {cycles.map((cycle) => (
+              {categories.map((cycle) => (
                 <SelectItem key={cycle} value={cycle}>
                   {cycle.charAt(0).toUpperCase() + cycle.slice(1)}
                 </SelectItem>
@@ -79,6 +75,7 @@ export function PastYearPapers({ cycles, papers }: PastYearPapersProps) {
         ))}
     </div>
   </div>
+  </MaxWidthWrapper>
   )
 }
 

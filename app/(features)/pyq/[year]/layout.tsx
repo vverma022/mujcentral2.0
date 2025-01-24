@@ -1,4 +1,3 @@
-import { PapersHeaderLayout } from "@/components/papers/papers-header-layout";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 
 export default function BlogLayout({
@@ -8,7 +7,7 @@ export default function BlogLayout({
 }) {
   return (
     <>
-      <PapersHeaderLayout />
+
       <MaxWidthWrapper className="pb-16">{children}</MaxWidthWrapper>
     </>
   );

@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import Link from 'next/link'
+import PapersHeaderLayout from './papers-header-layout'
 
 interface CompactRectangularPaperCardProps {
   imageUrl: string
@@ -12,7 +13,7 @@ interface CompactRectangularPaperCardProps {
   examType: 'MTE' | 'ETE'
 }
 
-export  function RectangularPaperCard({ link, imageUrl, title, name , difficulty, examType }: CompactRectangularPaperCardProps) {
+export  function RectangularPaperCard({ link, imageUrl, title, name , difficulty, examType}: CompactRectangularPaperCardProps) {
   const difficultyColor = {
     E: 'bg-green-100 text-green-800',
     M: 'bg-yellow-100 text-yellow-800',
@@ -20,6 +21,7 @@ export  function RectangularPaperCard({ link, imageUrl, title, name , difficulty
   }[difficulty]
 
   return (
+    <>
     <Link href={link}>
      <Card className="overflow-hidden hover:shadow-md transition-shadow">
       <div className="relative h-40 w-full">
@@ -48,10 +50,10 @@ export  function RectangularPaperCard({ link, imageUrl, title, name , difficulty
             {examType}
           </Badge>
         </div>
-        
       </CardContent>
     </Card>
   </Link>
+  </>
   )
 }
 
