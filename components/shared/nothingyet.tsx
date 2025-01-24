@@ -15,7 +15,7 @@ export default function Nothingyet() {
       <p className="text-balance px-4 text-center text-xl font-heading">
         Waiting for Papers from the Community. Return to {" "}
         <Link
-          href="/"
+          href="/#papers"
           className="text-muted-foreground underline underline-offset-4 hover:text-purple-500"
         >
           Homepage
