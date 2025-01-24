@@ -195,6 +195,16 @@ export const secondYearPapers: Record<string, Paper[]> = {
 
   ],
   'IoT': [
-
+    {id: 1, title: 'DDCA', name: "Digital Design and Architecture", link: 'https://drive.google.com/file/d/1so3levw6CZo9_ka2BEUxvE_FyGkTJlvq/view?usp=share_link', image: R1, difficulty: 'H', examType: 'ETE'},
+    {id: 2, title: 'DDCA', name: "Digital Design and Architecture", link: 'https://drive.google.com/file/d/1q-V3rNZP4cORLoX9Ys_EAygWbnmKmaEo/view?usp=share_link', image: R2, difficulty: 'M', examType: 'MTE'},
+    {id: 3, title: 'DSA', name: "Data Strutures and Algorithm's", link: 'https://drive.google.com/file/d/1Ks_qh-WKrtJSPCQGmY9w2MHtYONqlB85/view?usp=share_link', image: R3, difficulty: 'M', examType: 'ETE'},
+    {id: 4, title: 'DSA', name: "Data Strutures and Algorithm's", link: 'https://drive.google.com/file/d/1VHq4U5LNUy3juAOxClcG4SshR0Vy7KF1/view?usp=share_link', image: R4, difficulty: 'E', examType: 'MTE'},
+    {id: 5, title: 'EE', name: "Engineering Economic's", link: 'https://drive.google.com/file/d/1GzWC1zegVlLcrtLya532gZXavIaMdah2/view?usp=share_link', image: R1, difficulty: 'E', examType: 'MTE'},
+    {id: 6, title: 'EE', name: "Engineering Economic's", link: 'https://drive.google.com/file/d/10tsSpNNvApf8NijC-s9uOrFEEK3YtN1P/view?usp=share_link',image: R2, difficulty: 'M', examType: 'ETE'},
+    {id: 7, title: 'OOPS', name: "Object Oriented Programming", link: 'https://drive.google.com/file/d/1trbLkVVSxp9I7zrB7GzTD_4M5QSP2PD1/view?usp=share_link', image: R3, difficulty: 'M', examType: 'MTE'},
+    {id: 8, title: 'OOPS', name: "Object Oriented Programming", link: 'https://drive.google.com/file/d/1cSt3rWnn5Hek4X5uts35upJNEJGdX7D5/view?usp=share_link', image: R4, difficulty: 'M', examType: 'ETE'},
+    {id: 9, title: 'MT', name: "Management of Technology", link: 'https://drive.google.com/file/d/1akW7YwB8UiRVUrVHxByKqecEGlpPnAd5/view?usp=share_link', image: R1, difficulty: 'M', examType: 'MTE'},
+    {id: 10, title: 'MT', name: "Management of Technology", link: 'https://drive.google.com/file/d/1tKCwtG4tnW_SsoRJN1CjtQJIWQfz9jvJ/view?usp=share_link', image: R2, difficulty: 'E', examType: 'ETE'},
+    {id: 11, title: 'DDCN', name: "Computer Networks", link: 'https://drive.google.com/file/d/1ZzMxM8qgYVKy24UCZZcJVGJbVpvdJ9zP/view?usp=share_link', image: R3, difficulty: 'H', examType: 'ETE'},
   ]
 };
