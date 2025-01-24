@@ -5,7 +5,7 @@ import { HeaderSection } from "@/components/shared/header-section";
 
 export function InfiniteMovingCardsDemo() {
   return (
-    <div className="h-[40rem] rounded-md flex flex-col antialiased  dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+    <div className="dark:bg-grid-white/[0.05] relative flex h-[40rem] flex-col  items-center justify-center overflow-hidden rounded-md antialiased">
          <HeaderSection
           label="Contributors"
           title="Thanks to the Manipal Community"

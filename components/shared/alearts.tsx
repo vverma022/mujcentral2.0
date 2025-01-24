@@ -17,15 +17,15 @@ export const SuccessAlert = ({ success, setSuccess }) => {
   return (
     <Alert
       variant="default"
-      className="relative bg-green-100 text-green-400 dark:bg-green-900 dark:text-green-300 shadow-lg"
+      className="relative bg-green-100 text-green-400 shadow-lg dark:bg-green-900 dark:text-green-300"
     >
       <button
         onClick={() => setSuccess(null)}
-        className="absolute top-1 right-1 text-green-400 dark:text-green-300 hover:text-green-600"
+        className="absolute right-1 top-1 text-green-400 hover:text-green-600 dark:text-green-300"
       >
         ✕
       </button>
-      <CircleCheckIcon className="h-4 w-4" />
+      <CircleCheckIcon className="size-4" />
       <AlertTitle>Success</AlertTitle>
       <AlertDescription>{success}</AlertDescription>
     </Alert>
@@ -45,15 +45,15 @@ export const ErrorAlert = ({ error, setError }) => {
   return (
     <Alert
       variant="default"
-      className="relative bg-red-100 text-red-400 dark:bg-red-900 dark:text-red-300 shadow-lg"
+      className="relative bg-red-100 text-red-400 shadow-lg dark:bg-red-900 dark:text-red-300"
     >
       <button
         onClick={() => setError(null)}
-        className="absolute top-1 right-1 text-red-400 dark:text-red-300 hover:text-red-600"
+        className="absolute right-1 top-1 text-red-400 hover:text-red-600 dark:text-red-300"
       >
         ✕
       </button>
-      <CircleCheckIcon className="h-4 w-4" />
+      <CircleCheckIcon className="size-4" />
       <AlertTitle>Error</AlertTitle>
       <AlertDescription>{error}</AlertDescription>
     </Alert>

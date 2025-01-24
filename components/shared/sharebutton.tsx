@@ -58,7 +58,7 @@ export default function ShareButton({ confession, username }: { confession: stri
       <DialogContent>
         <div className="flex flex-col items-center space-y-4">
           <h2 className="text-gradient_indigo-purple text-foreground">Share this Post</h2>
-          <div className="flex flex-col space-y-2 w-full">
+          <div className="flex w-full flex-col space-y-2">
             <a
               href={`https://www.instagram.com/?url=${encodeURIComponent(window.location.href)}`}
               target="_blank"

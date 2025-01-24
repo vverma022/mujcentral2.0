@@ -80,30 +80,30 @@ export const InfiniteMovingCards = ({
       <ul
         ref={scrollerRef}
         className={cn(
-          " flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap",
+          " flex w-max min-w-full shrink-0 flex-nowrap gap-4 py-4",
           start && "animate-scroll ",
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
       >
         {items.map((item, idx) => (
           <li
-            className="w-[350px] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700 px-8 py-6 md:w-[450px]"
+            className="relative w-[350px] max-w-full shrink-0 rounded-2xl border border-b-0 border-slate-700 px-8 py-6 md:w-[450px]"
             key={item.name}
           >
             <blockquote>
               <div
                 aria-hidden="true"
-                className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
+                className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 size-[calc(100%_+_4px)]"
               ></div>
-              <span className=" relative z-20 text-sm leading-[1.6]  text-gray-500 font-normal">
+              <span className=" relative z-20 text-sm font-normal  leading-[1.6] text-gray-500">
                 {item.quote}
               </span>
               <div className="relative z-20 mt-6 flex flex-row items-center">
                 <span className="flex flex-col gap-1">
-                  <span className="font-heading text-sm leading-[1.6] text-gray-700 font-normal">
+                  <span className="font-heading text-sm font-normal leading-[1.6] text-gray-700">
                     {item.name}
                   </span>
-                  <span className=" text-sm leading-[1.6] text-gray-700 font-normal">
+                  <span className=" text-sm font-normal leading-[1.6] text-gray-700">
                     {item.title}
                   </span>
                 </span>

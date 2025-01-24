@@ -10,17 +10,17 @@ interface ConfessionPostProps {
 
 export default async function ConfessionPost({ confession, username}: ConfessionPostProps) {
   return (
-    <Card className="w-full max-w-[280px] mx-auto shadow-md overflow-hidden">
+    <Card className="mx-auto w-full max-w-[280px] overflow-hidden shadow-md">
       <CardContent className="p-0">
-      <div className="aspect-square bg-gray-100 dark:bg-zinc-600 p-4 flex flex-col items-center justify-center relative border">
-          <p className="text-sm font-medium text-center mb-2 line-clamp-5 font-heading">
+      <div className="relative flex aspect-square flex-col items-center justify-center border bg-gray-100 p-4 dark:bg-zinc-600">
+          <p className="mb-2 line-clamp-5 text-center font-heading text-sm font-medium">
             {confession}
           </p>
-          <span className="text-xs p-2 font-light absolute bottom-1 right-1">MUJ_CONFESS</span>
+          <span className="absolute bottom-1 right-1 p-2 text-xs font-light">MUJ_CONFESS</span>
         </div>
       </CardContent>
-      <CardFooter className="flex justify-between items-center p-2">
-        <span className="font-semibold  text-xs">{username}</span>
+      <CardFooter className="flex items-center justify-between p-2">
+        <span className="text-xs  font-semibold">{username}</span>
         <ShareButton confession={confession} username={username} />
       </CardFooter>
     </Card>

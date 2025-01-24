@@ -12,7 +12,7 @@ export default function Nothingyet() {
         height={400}
         className="pointer-events-none mb-5 mt-6 dark:invert"
       />
-      <p className="text-balance px-4 text-center text-xl font-heading">
+      <p className="text-balance px-4 text-center font-heading text-xl">
         Waiting for Papers from the Community. Return to {" "}
         <Link
           href="/#papers"

@@ -22,7 +22,7 @@ export  function RectangularPaperCard({ link, imageUrl, title, name , difficulty
   return (
     <>
     <Link href={link}>
-     <Card className="overflow-hidden hover:shadow-md transition-shadow">
+     <Card className="overflow-hidden transition-shadow hover:shadow-md">
       <div className="relative h-40 w-full">
         <Image
           src={imageUrl}
@@ -33,16 +33,16 @@ export  function RectangularPaperCard({ link, imageUrl, title, name , difficulty
         />
       </div>
       <CardContent className="p-4">
-      <div className="justify-items-center mb-2 text-center">
-      <h3 className="text-lg font-medium line-clamp-2 flex-grow text-card-foreground text-center">
+      <div className="mb-2 justify-items-center text-center">
+      <h3 className="line-clamp-2 grow text-center text-lg font-medium text-card-foreground">
        {title}
       </h3>
-      <p className="text-xs font-light line-clamp-2 flex-grow text-muted-foreground text-center">
+      <p className="line-clamp-2 grow text-center text-xs font-light text-muted-foreground">
        {name}
       </p>
       </div>
-        <div className="flex justify-between items-start ">
-          <div className={`inline-block px-2 py-1 rounded-full text-xs ${difficultyColor}`}>
+        <div className="flex items-start justify-between ">
+          <div className={`inline-block rounded-full px-2 py-1 text-xs ${difficultyColor}`}>
           {difficulty}
           </div>
           <Badge variant="outline" className="ml-2 shrink-0">

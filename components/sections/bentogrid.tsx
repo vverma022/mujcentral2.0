@@ -95,7 +95,7 @@ export default function BentoGrid() {
                 </svg>
               </div>
               <div className="relative z-10 mt-8 space-y-1.5 text-center">
-                <h2 className="text-lg font-medium text-foreground font-heading">
+                <h2 className="font-heading text-lg font-medium text-foreground">
                   MUJ Confess
                 </h2>
                 <p className="text-muted-foreground">
@@ -107,7 +107,7 @@ export default function BentoGrid() {
           </div>
 
           {/* Third card */}
-          <div className="relative col-span-full overflow-hidden rounded-2xl border  bg-background p-8 sm:col-span-3 lg:col-span-2 h-64 sm:h-80 lg:h-96">
+          <div className="relative col-span-full h-64 overflow-hidden rounded-2xl  border bg-background p-8 sm:col-span-3 sm:h-80 lg:col-span-2 lg:h-96">
            <Image
            src={Poster}
            alt="Poster"

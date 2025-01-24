@@ -49,15 +49,15 @@ export default function UnimatesPage() {
   }, []);
 
   if (loading) {
-    return <div className="text-center py-4">Loading...</div>;
+    return <div className="py-4 text-center">Loading...</div>;
   }
 
   if (error) {
-    return <div className="text-center py-4 text-red-500">Error: {error}</div>;
+    return <div className="py-4 text-center text-red-500">Error: {error}</div>;
   }
 
   if (!profile) {
-    return <div className="text-center py-4">No profile available.</div>;
+    return <div className="py-4 text-center">No profile available.</div>;
   }
 
   return <UnimatesPosts profiles={[profile]} />

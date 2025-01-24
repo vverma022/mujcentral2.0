@@ -5,12 +5,12 @@ import logo from "@/public/_static/avatars/logo1.png"
 
 export default async function AboutPage() {
   return (
-    <div className="container mx-auto px-4 py-8 max-w-3xl">
-      <h1 className="text-4xl font-heading  mb-4 text-center">About Us</h1>
-      <p className="text-lg text-center mb-8 text-muted-foreground">About MUJ Central and its mission.</p>
+    <div className="container mx-auto max-w-3xl px-4 py-8">
+      <h1 className="mb-4 text-center  font-heading text-4xl">About Us</h1>
+      <p className="mb-8 text-center text-lg text-muted-foreground">About MUJ Central and its mission.</p>
 
       <section className="mb-8">
-        <h2 className="text-2xl font-heading bold mb-4">Our Vision</h2>
+        <h2 className="bold mb-4 font-heading text-2xl">Our Vision</h2>
         <p className="mb-4">
           We strive to inspire, innovate, and make a lasting impact. <strong>MUJ Central</strong> is built to help
           students succeed, connect, and grow within the vibrant MUJ community.
@@ -20,12 +20,12 @@ export default async function AboutPage() {
       <hr className="my-8 border-gray-300" />
 
       <section className="mb-8">
-        <h2 className="text-2xl font-heading bold mb-4">About MUJ Central</h2>
+        <h2 className="bold mb-4 font-heading text-2xl">About MUJ Central</h2>
         <p className="mb-4">
           <strong>MUJ Central</strong> is a platform built by a passionate developer from MUJ with the sole purpose of
           helping students. Our mission is to:
         </p>
-        <ul className="list-disc pl-6 mb-4">
+        <ul className="mb-4 list-disc pl-6">
           <li>Assist students in preparing for exams with useful resources.</li>
           <li>Provide a safe, anonymous space for confessions and sharing experiences.</li>
           <li>Help new students find batchmates from their city, making the transition to college life smoother.</li>
@@ -33,10 +33,10 @@ export default async function AboutPage() {
       </section>
 
       <section className="mb-8">
-        <h2 className="text-2xl font-heading bold mb-4">Why We Built This</h2>
+        <h2 className="bold mb-4 font-heading text-2xl">Why We Built This</h2>
         <p className="mb-4">
           MUJ Central was created to leave a meaningful impact on the student community and to foster a sense of
-          connection and support. It's a platform for students, by students, designed to make college life a little
+          connection and support. It&apos;s a platform for students, by students, designed to make college life a little
           easier and a lot more engaging.
         </p>
         <p>
@@ -54,9 +54,9 @@ export default async function AboutPage() {
       alt="The Legend of MUJ Central"
       width={200}
       height={100}
-      className="border rounded-full"
+      className="rounded-full border"
     />
-    <figcaption className="text-center text-sm italic mt-2">
+    <figcaption className="mt-2 text-center text-sm italic">
       The man, the myth, the legend
     </figcaption>
   </figure>

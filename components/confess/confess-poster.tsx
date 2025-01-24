@@ -12,7 +12,7 @@ export async function ConfessPoster() {
     <div className={cn("overflow-hidden rounded-xl border lg:-m-4")}>
       <div className="aspect-video">
         <Image
-          className="size-full object-center bg-gray-100"
+          className="size-full bg-gray-100 object-center"
           src={Poster}
           alt="People sharing their confessions"
           width={1000}
@@ -23,7 +23,7 @@ export async function ConfessPoster() {
     </div>
     <div>
       <h2 className="font-heading text-2xl text-foreground md:text-4xl lg:text-[40px]">
-      Your Voice, Your Story, Your Confession
+      Your Voice, Your Story, Your <span className="text-gradient_indigo-purple">Confession</span>
       </h2>
       <dl className="mt-4 text-muted-foreground">
       Express yourself freely and anonymously. Share your thoughts, experiences, and confessions with the MUJ community

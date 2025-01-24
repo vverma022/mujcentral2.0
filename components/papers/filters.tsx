@@ -22,9 +22,9 @@ export function PastYearPapers({ categories , papers , year }: PastYearPapersPro
   return (
     <MaxWidthWrapper>
     <PapersHeaderLayout year={year} />
-    <div className="w-full mt-4">
+    <div className="mt-4 w-full">
     <div className="mb-8">
-      <h3 className="font-heading text-2xl md:text-4xl mb-4">Filters</h3>
+      <h3 className="mb-4 font-heading text-2xl md:text-4xl">Filters</h3>
       <div className="inline-flex gap-x-2">
         <div>
           <Select onValueChange={setSelectedCycle} defaultValue={selectedCycle}>
@@ -59,7 +59,7 @@ export function PastYearPapers({ categories , papers , year }: PastYearPapersPro
         </div>
       </div>
     </div>
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {papers[selectedCycle]
         .filter((paper) => paper.examType === selectedExamType) // Filter papers by exam type
         .map((paper) => (

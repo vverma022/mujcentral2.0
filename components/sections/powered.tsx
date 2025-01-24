@@ -130,7 +130,7 @@ export default function Powered() {
               key={logo.title}
               href={logo.href}
               aria-label={logo.title}
-              className="duration-250 backdrop-grayscale-0 transition text-foreground"
+              className="duration-250 text-foreground backdrop-grayscale-0 transition"
             >
               {logo.icon}
             </Link>

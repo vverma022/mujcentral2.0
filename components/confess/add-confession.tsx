@@ -112,8 +112,8 @@ export default function AddConfessionButton() {
       {message && <p className="mt-2">{message}</p>}
       </DialogFooter>
     </Dialog>
-    <div className="fixed inset-0 z-[9999] pointer-events-none flex items-end justify-end p-4">
-  <div className="space-y-4 pointer-events-auto">
+    <div className="pointer-events-none fixed inset-0 z-[9999] flex items-end justify-end p-4">
+  <div className="pointer-events-auto space-y-4">
     {message && ( <SuccessAlert success={message} setSuccess={setMessage} /> )}
     {error && (<ErrorAlert error={error} setError={setError} /> )}
   </div>
