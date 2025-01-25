@@ -67,7 +67,7 @@ export function ContactButton() {
               <Textarea id="message" name="message" required />
             </div>
             <Button type="submit" className="w-full" disabled={isSubmitting}>
-            {isSubmitting ? 'Submitting...' : 'Submit Confession'}
+            {isSubmitting ? 'Submitting...' : 'Contact Us'}
             </Button>
           </form>
         </DialogContent>

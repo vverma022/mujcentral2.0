@@ -15,7 +15,7 @@ import { Textarea } from "@/components/ui/textarea";
 import axios from 'axios';
 import { ErrorAlert, SuccessAlert } from '../shared/alearts';
 
-const fetcher = (url: string | URL | Request) => fetch(url).then((res) => res.json());
+
 
 export default function AddConfessionButton() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,26 +27,34 @@ export default function AddConfessionButton() {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-
+  
     if (!name.trim() || !confession.trim()) {
       setError('Name and confession cannot be empty.');
       return;
     }
-
+  
     setIsSubmitting(true);
     setError('');
-
+  
     try {
-      const response = await axios.post('/api/confess/add', {
-        name: name.trim(),
-        confession: confession.trim(),
-      });
+      const response = await axios.post(
+        '/api/confess/add',
+        {
+          name: name.trim(),
+          confession: confession.trim(),
+        },
+        { withCredentials: true } // Ensure cookies are sent
+      );
       setName('');
       setConfession('');
       setMessage('Your confession has been submitted successfully.');
       setIsOpen(false);
     } catch (err) {
-      setError('Failed to submit your confession. Please try again.');
+      if (err.response?.status === 403) {
+        setError(err.response?.data?.message || 'Access denied. Please check your cookies.');
+      } else {
+        setError('Failed to submit your confession. Please try again.');
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -109,7 +117,6 @@ export default function AddConfessionButton() {
         </form>
       </DialogContent>
       <DialogFooter>
-      {message && <p className="mt-2">{message}</p>}
       </DialogFooter>
     </Dialog>
     <div className="pointer-events-none fixed inset-0 z-[9999] flex items-end justify-end p-4">
