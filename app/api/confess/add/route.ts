@@ -1,14 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
-import { uniqueNamesGenerator,adjectives, colors, animals } from 'unique-names-generator';
-import {parse , serialize} from 'cookie'
+import { uniqueNamesGenerator, adjectives, colors, animals } from 'unique-names-generator';
+import { parse, serialize } from 'cookie';
 import redis from '@/lib/redis';
 
 const prisma = new PrismaClient();
 const confessionqueue = 'confessionqueue';
 
-
-// Background process to handle queue processing
+// Process Redis queue at regular intervals
 setInterval(async () => {
   const confessions: any[] = [];
   let confession;
@@ -16,7 +15,13 @@ setInterval(async () => {
   while ((confession = await redis.lpop(confessionqueue))) {
     try {
       const parsedConfession = typeof confession === 'string' ? JSON.parse(confession) : confession;
-      confessions.push(parsedConfession);
+
+      // Validate parsed confession
+      if (parsedConfession && typeof parsedConfession === 'object' && parsedConfession.name && parsedConfession.confession) {
+        confessions.push(parsedConfession);
+      } else {
+        console.warn('Invalid confession skipped:', confession);
+      }
     } catch (error) {
       console.error('Error parsing confession from Redis:', confession, error);
     }
@@ -29,9 +34,10 @@ setInterval(async () => {
     } catch (error) {
       console.error('Error writing to database:', error);
     }
+  } else {
+    console.log("No valid confessions to write to database.");
   }
-}, 30000);
-
+}, 30000); // Every 30 seconds
 
 export async function POST(req: NextRequest) {
   try {
@@ -96,7 +102,7 @@ export async function POST(req: NextRequest) {
     );
 
     // Add the confession to the Redis queue
-    // await redis.rpush(confessionqueue, JSON.stringify(newConfession));
+    await redis.rpush(confessionqueue, JSON.stringify(newConfession));
 
     const response = NextResponse.json(newConfession, { status: 201 });
     response.headers.set("Set-Cookie", cookie);

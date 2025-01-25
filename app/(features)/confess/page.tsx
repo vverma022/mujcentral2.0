@@ -1,6 +1,5 @@
 "use server";
 
-import { GetServerSideProps } from 'next';
 import ConfessionList from '@/components/confess/confession-list';
 
 const url = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
