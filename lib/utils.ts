@@ -2,19 +2,19 @@ import { Metadata } from "next";
 import { clsx, type ClassValue } from "clsx";
 import ms from "ms";
 import { twMerge } from "tailwind-merge";
-
 import { env } from "@/env.mjs";
 import { siteConfig } from "@/config/site";
+import main from "@/public/_static/illustrations/main.png";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
 export function constructMetadata({
-  title = siteConfig.name,
-  description = siteConfig.description,
-  image = siteConfig.ogImage,
-  icons = "/favicon.ico",
+  title = "MUJ-CENTRAL-2.0",
+  description = "A platform for MUJ students to engage and share their experiences.",
+  image = 'public/_static/illustrations/main.png' , // Replace with actual image URL
+  icons = "public/favicon.ico",
   noIndex = false,
 }: {
   title?: string;
@@ -27,40 +27,37 @@ export function constructMetadata({
     title,
     description,
     keywords: [
-      "Next.js",
-      "React",
-      "Prisma",
-      "Neon",
-      "Auth.js",
-      "shadcn ui",
-      "Resend",
-      "React Email",
-      "Stripe",
+      "MUJ",
+      "MUJ-Central",
+      "Student Platform",
+      "Student Engagement",
+      "University Community",
     ],
     authors: [
       {
-        name: "mickasmt",
+        name: "Vasu Verma", // Replace with your name or the relevant author
       },
     ],
-    creator: "mickasmt",
+    creator: "Vasu Verma", // Creator of the site (your name or team name)
     openGraph: {
       type: "website",
       locale: "en_US",
-      url: siteConfig.url,
+      url: "https://mujcentral2-0.vercel.app/site.webmanifest", // Replace with your actual URL
       title,
       description,
-      siteName: title,
+      siteName: "MUJ-CENTRAL-2.0",
+      images: [image], // Ensure Open Graph image is set here
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [image],
-      creator: "@miickasmt",
+      images: 'public/_static/illustrations/main.png'  , // Ensure Twitter Card image is set here
+      creator: "@vasiuuuu_", // Replace with your actual Twitter handle
     },
     icons,
-    metadataBase: new URL(siteConfig.url),
-    manifest: `${siteConfig.url}/site.webmanifest`,
+    metadataBase: new URL("https://mujcentral2-0.vercel.app"), // Replace with your actual URL
+    manifest: "https://mujcentral2-0.vercel.app/site.webmanifest", // Replace with your actual manifest file URL
     ...(noIndex && {
       robots: {
         index: false,
