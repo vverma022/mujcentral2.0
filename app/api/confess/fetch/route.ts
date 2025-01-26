@@ -5,15 +5,15 @@ import redis from '@/lib/redis';
 
 const prisma = new PrismaClient();
 const cachedConfessions = 'confessions';
-const TTL = 600; // 10 minutes
+const TTL = 300; // 10 minutes
 
 export async function GET() {
   try {
-    // const cachedData = await redis.get(cachedConfessions);
-    // if (cachedData) {
-    //   console.log('Cache hit')
-    //   return NextResponse.json(cachedData);
-    // }
+     const cachedData = await redis.get(cachedConfessions);
+    if (cachedData) {
+      console.log('Cache hit')
+      return NextResponse.json(cachedData);
+    }
   
     console.log('Cache miss')
     const confessions = await prisma.confession.findMany({
@@ -27,7 +27,7 @@ export async function GET() {
       take: 20,
     });
 
-    // await redis.set(cachedConfessions, confessions, {'ex': TTL});
+    await redis.set(cachedConfessions, confessions, {'ex': TTL});
     
     return NextResponse.json(confessions);
   } catch (error) {

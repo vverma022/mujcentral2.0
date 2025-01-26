@@ -7,7 +7,6 @@ import redis from '@/lib/redis';
 const prisma = new PrismaClient();
 const confessionqueue = 'confessionqueue';
 
-// Process Redis queue at regular intervals
 setInterval(async () => {
   const confessions: any[] = [];
   let confession;
@@ -42,19 +41,23 @@ setInterval(async () => {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
+    if (!body || typeof body !== 'object') {
+      throw new Error('Invalid request body. Expected a JSON object.');
+    }
     const { name, confession } = body;
+
+    if (!name?.trim() || !confession?.trim()) {
+      return NextResponse.json({ error: 'Name and confession are required.' }, { status: 400 });
+    }
+
     const cookies = parse(req.headers.get('cookie') || '');
     const cookiedata = cookies.user_data ? JSON.parse(cookies.user_data) : null;
 
     if (!cookiedata || !cookiedata.uuid) {
       return NextResponse.json(
-        { success: false, message: "You need to allow cookies to submit a confession." },
+        { success: false, message: 'You need to allow cookies to submit a confession.' },
         { status: 403 }
       );
-    }
-
-    if (!name || !confession) {
-      return NextResponse.json({ error: "Name and confession are required." }, { status: 400 });
     }
 
     const { uuid, confessionCount, lastReset } = cookiedata;
@@ -71,14 +74,14 @@ export async function POST(req: NextRequest) {
 
     if (updatedCount >= 14) {
       return NextResponse.json(
-        { success: false, message: "You can only submit 14 confessions per week." },
+        { success: false, message: 'You can only submit 14 confessions per week.' },
         { status: 403 }
       );
     }
 
     const username = uniqueNamesGenerator({
       dictionaries: [adjectives, animals, colors],
-      separator: "_",
+      separator: '_',
     });
 
     const newConfession = {
@@ -91,24 +94,38 @@ export async function POST(req: NextRequest) {
     updatedCount += 1;
 
     const cookie = serialize(
-      "user_data",
+      'user_data',
       JSON.stringify({ uuid, confessionCount: updatedCount, lastReset: updatedLastReset }),
       {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        path: "/",
-        sameSite: "strict",
+        secure: process.env.NODE_ENV === 'production',
+        path: '/',
+        sameSite: 'strict',
       }
     );
 
     // Add the confession to the Redis queue
     await redis.rpush(confessionqueue, JSON.stringify(newConfession));
 
+    // Fetch updated confessions and update cache
+    const freshConfessions = await prisma.confession.findMany({
+      select: {
+        username: true,
+        confession: true,
+      },
+      orderBy: {
+        createdAt: 'desc',
+      },
+      take: 20,
+    });
+
+    await redis.set('confessions', JSON.stringify(freshConfessions),{ex: 600}); // Update cache with TTL
+
     const response = NextResponse.json(newConfession, { status: 201 });
-    response.headers.set("Set-Cookie", cookie);
+    response.headers.set('Set-Cookie', cookie);
     return response;
   } catch (error) {
-    console.error("Error creating confession:", error);
-    return NextResponse.json({ error: "Something went wrong." }, { status: 500 });
+    console.error('Error creating confession:', error);
+    return NextResponse.json({ error: 'Something went wrong.' }, { status: 500 });
   }
 }
