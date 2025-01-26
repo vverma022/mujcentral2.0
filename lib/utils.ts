@@ -12,9 +12,9 @@ export function cn(...inputs: ClassValue[]) {
 
 export function constructMetadata({
   title = "MUJ-CENTRAL-2.0",
-  description = "A platform for MUJ students to engage and share their experiences.",
-  image = 'public/_static/illustrations/main.png' , // Replace with actual image URL
-  icons = "public/favicon.ico",
+  description = "A platform for MUJ students to engage and help them prepare",
+  image = '/_static/og.jpg', // Update image path to match your desired image in public/_static
+  icons = "/favicon.ico",
   noIndex = false,
 }: {
   title?: string;
@@ -52,7 +52,7 @@ export function constructMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: 'public/_static/illustrations/main.png'  , // Ensure Twitter Card image is set here
+      images: image,  // Ensure Twitter Card image is set here
       creator: "@vasiuuuu_", // Replace with your actual Twitter handle
     },
     icons,

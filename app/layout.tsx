@@ -36,7 +36,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <meta name="twitter:title" content={metadata.title?.toString() ?? ''} />
         <meta name="twitter:description" content={metadata.description ?? ''} />
         <meta name="twitter:image" content={metadata.twitter?.images?.[0] ?? ''} />
-
         {/* Add the rest of the metadata */}
         <link rel="icon" href={metadata.icons?.toString() ?? ''} />
         <link rel="manifest" href={metadata.manifest?.toString() ?? ''} />
