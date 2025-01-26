@@ -41,45 +41,45 @@ export function ContactButton() {
 
   return (
     <>
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger asChild>
-          <Button variant="ghost" className="text-sm text-muted-foreground">
-            Contact Us
-          </Button>
-        </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle className="text-gradient_indigo-purple text-center font-heading">
-              Contact Us
-            </DialogTitle>
-          </DialogHeader>
-          <form onSubmit={onSubmit} className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" name="name" required />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" name="email" type="email" required />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="message">Message</Label>
-              <Textarea id="message" name="message" required />
-            </div>
-            <Button type="submit" className="w-full" disabled={isSubmitting}>
-            {isSubmitting ? 'Submitting...' : 'Contact Us'}
-            </Button>
-          </form>
-        </DialogContent>
-      </Dialog>
-      <div className="pointer-events-none fixed inset-0 z-[9999] flex items-end justify-end p-4">
-        <div className="pointer-events-auto space-y-4">
-          {message && (
-            <SuccessAlert success={message} setSuccess={setMessage} />
-          )}
-          {error && <ErrorAlert error={error} setError={setError} />}
-        </div>
+     <Dialog open={open} onOpenChange={setOpen}>
+  <DialogTrigger asChild>
+    <span className="cursor-pointer text-sm text-muted-foreground">
+      Contact Us
+    </span>
+  </DialogTrigger>
+  <DialogContent className="sm:max-w-[425px]">
+    <DialogHeader>
+      <DialogTitle className="text-gradient_indigo-purple text-center font-heading">
+        Contact Us
+      </DialogTitle>
+    </DialogHeader>
+    <form onSubmit={onSubmit} className="space-y-4">
+      <div className="space-y-2">
+        <Label htmlFor="name">Name</Label>
+        <Input id="name" name="name" required />
       </div>
+      <div className="space-y-2">
+        <Label htmlFor="email">Email</Label>
+        <Input id="email" name="email" type="email" required />
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="message">Message</Label>
+        <Textarea id="message" name="message" required />
+      </div>
+      <Button type="submit" className="w-full" disabled={isSubmitting}>
+        {isSubmitting ? 'Submitting...' : 'Contact Us'}
+      </Button>
+    </form>
+  </DialogContent>
+</Dialog>
+<div className="pointer-events-none fixed inset-0 z-[9999] flex items-end justify-end p-4">
+  <div className="pointer-events-auto space-y-4">
+    {message && (
+      <SuccessAlert success={message} setSuccess={setMessage} />
+    )}
+    {error && <ErrorAlert error={error} setError={setError} />}
+  </div>
+</div>
     </>
   );
 }
