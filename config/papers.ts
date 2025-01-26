@@ -183,7 +183,12 @@ export const secondYearPapers: Record<string, Paper[]> = {
     { id: 2, title: 'DSA', name: "Data-Structures and Algorithms" ,link: 'https://drive.google.com/drive/folders/1FpxgdCGycRw7Vi3jjqCB3uFg0U9Pk9i3?usp=share_link', image: R3 , difficulty: 'M', examType: 'MTE' },
     { id: 3, title: 'OOPS', name: "Object-Oriented Programming" ,link: 'https://drive.google.com/drive/folders/1KDHT3EAdz3_e--1ClYsouzzdG6v_-gQS?usp=sharing', image: R4 , difficulty: 'M', examType: 'MTE' },
     { id: 4, title: 'RDBMS',name: "Database Management System" , link: 'https://drive.google.com/drive/folders/16YTo5L4Anal9oXl4ca_XxOYPY11o_9-y?usp=sharing', image: R2 , difficulty: 'E', examType: 'MTE' },
-
+    { id: 5, title: 'COA', name: "Computer Architecture " , link: 'https://drive.google.com/file/d/1DacWfHnZDCVHasB77qT1rmMhYuiLR8l3/view?usp=share_link', image: R1 , difficulty: 'H', examType: 'ETE' },
+    { id: 6, title: 'DSA', name: "Data-Structures and Algorithms" ,link: 'https://drive.google.com/file/d/1yiFEGKr_ftIJrqP8xys4fflaq6Vv9f04/view?usp=share_link', image: R3 , difficulty: 'H', examType: 'ETE' },
+    { id: 7, title: 'OOPS', name: "Object-Oriented Programming" ,link: 'https://drive.google.com/file/d/1UDqQi0ZjIzXyazFbRo76r05ojDv1QSk8/view?usp=share_link', image: R4 , difficulty: 'M', examType: 'ETE' },
+    { id: 8, title: 'RDBMS',name: "Database Management System" , link: 'https://drive.google.com/file/d/1qoDk_64XRI2l8AgpNPFToIJikURwR7VL/view?usp=share_link', image: R2 , difficulty: 'M', examType: 'ETE' },
+    { id: 9, title: 'SAP', name: "Statistical Method and Probaility" , link: 'https://drive.google.com/file/d/1ZtdXA4w1_XotAfiU2ZobDLQLehOKfofk/view?usp=share_link', image: R4 , difficulty: 'M', examType: 'ETE' },
+    { id: 10, title: 'SAP', name: "Statistical Method and Probaility" , link: 'https://drive.google.com/file/d/1OCTaWZr_ppYmvbuVHlIZwyBMRIORHiRw/view?usp=share_link', image: R3, difficulty: 'M', examType: 'MTE' },
   ],
   'CCE': [
 
