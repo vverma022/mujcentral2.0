@@ -184,12 +184,12 @@ export default function BentoGrid() {
                       />
                     </div>
                     <span className="block h-fit rounded-md border bg-muted/50 px-2 py-1 text-xs">
-                      Vasu from Delhi
+                      STD from Delhi
                     </span>
                   </div>
                   <div className="relative flex w-[calc(50%+0.875rem)] items-center justify-end gap-2">
                     <span className="block h-fit rounded-md border bg-muted/50 px-2 py-1 text-xs">
-                      Shrirang from Pune
+                      Top-G from Pune
                     </span>
                     
                     <div className="size-7 ring-4 ring-background">
