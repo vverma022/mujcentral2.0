@@ -3,40 +3,46 @@ import { PrismaClient } from '@prisma/client';
 import { uniqueNamesGenerator, adjectives, colors, animals } from 'unique-names-generator';
 import { parse, serialize } from 'cookie';
 import redis from '@/lib/redis';
+import prisma from '@/lib/prisma';
 
-const prisma = new PrismaClient();
+
 const confessionqueue = 'confessionqueue';
+let isProcessingQueue = false;
 
 setInterval(async () => {
-  const confessions: any[] = [];
-  let confession;
+  if (isProcessingQueue) return; // Prevent overlapping intervals
+  isProcessingQueue = true;
+  try {
+    const confessions: any[] = [];
+    let confession;
 
-  while ((confession = await redis.lpop(confessionqueue))) {
-    try {
-      const parsedConfession = typeof confession === 'string' ? JSON.parse(confession) : confession;
+    while ((confession = await redis.lpop(confessionqueue))) {
+      try {
+        const parsedConfession = typeof confession === 'string' ? JSON.parse(confession) : confession;
 
-      // Validate parsed confession
-      if (parsedConfession && typeof parsedConfession === 'object' && parsedConfession.name && parsedConfession.confession) {
-        confessions.push(parsedConfession);
-      } else {
-        console.warn('Invalid confession skipped:', confession);
+        // Validate parsed confession
+        if (parsedConfession && typeof parsedConfession === 'object' && parsedConfession.name && parsedConfession.confession) {
+          confessions.push(parsedConfession);
+        } else {
+          console.warn('Invalid confession skipped:', confession);
+        }
+      } catch (error) {
+        console.error('Error parsing confession from Redis:', confession, error);
       }
-    } catch (error) {
-      console.error('Error parsing confession from Redis:', confession, error);
     }
-  }
 
-  if (confessions.length > 0) {
-    console.log("Writing batch to database:", confessions);
-    try {
+    if (confessions.length > 0) {
+      console.log("Writing batch to database:", confessions);
       await prisma.confession.createMany({ data: confessions });
-    } catch (error) {
-      console.error('Error writing to database:', error);
+    } else {
+      console.log("No valid confessions to write to database.");
     }
-  } else {
-    console.log("No valid confessions to write to database.");
+  } catch (error) {
+    console.error('Error processing confession queue:', error);
+  } finally {
+    isProcessingQueue = false;
   }
-}, 30000); // Every 30 seconds
+}, 30000);
 
 export async function POST(req: NextRequest) {
   try {
