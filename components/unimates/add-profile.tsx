@@ -240,9 +240,17 @@ export function AddProfileButton() {
   return (
     <>
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button>Add Profile</Button>
-      </DialogTrigger>
+    <DialogTrigger asChild>
+     <Button
+    className="disabled"
+    onClick={(e) => {
+      e.preventDefault(); // Prevent triggering dialog if "disabled"
+    }}
+    disabled
+       >
+    Add Profile
+  </Button>
+</DialogTrigger>
       <DialogContent className="fixed sm:max-w-[425px]">
         <DialogHeader>
           <h1 className="text-gradient_indigo-purple text-center font-bold">Unimates</h1>

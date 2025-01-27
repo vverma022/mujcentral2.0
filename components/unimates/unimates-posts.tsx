@@ -23,7 +23,6 @@ export default function UnimatesPosts({ profiles = [] }: { profiles: Profile[] }
         <h1 className="pb-2 font-heading text-3xl md:text-4xl">Your Unimates</h1>
       </div>
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-        
         {profiles.map((profile, index) => (
           <UnimatesPost
             key={profile.id || index} // Use profile ID or fallback to index
