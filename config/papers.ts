@@ -213,3 +213,11 @@ export const secondYearPapers: Record<string, Paper[]> = {
     {id: 11, title: 'DDCN', name: "Computer Networks", link: 'https://drive.google.com/file/d/1ZzMxM8qgYVKy24UCZZcJVGJbVpvdJ9zP/view?usp=share_link', image: R3, difficulty: 'H', examType: 'ETE'},
   ]
 };
+
+export const thirdYearPapers: Record<string, Paper[]> = {
+  'CCE': [
+    {id: 1, title: 'AIML', name: "Artificial Intelligence and Machine Learning", link: 'https://drive.google.com/file/d/1eFXR7UiIDaBoBZtNErlzMVHamcFa_8U_/view?usp=share_link', image: R1, difficulty: 'M', examType: 'MTE'},
+    {id: 2, title: 'ATCD', name: "Automata and Compiler Design", link: 'https://drive.google.com/file/d/1LW7ZeivpBDKjoyNotcVxQmbxfEVVvq_O/view?usp=share_link', image: R2, difficulty: 'M', examType: 'MTE'},
+    {id: 3, title: 'ATCD', name: "Automata and Compiler Design", link: 'https://drive.google.com/file/d/1W0fSY1aqZ8pEfr1ByKwZYDAUSc34G6oO/view?usp=share_link', image: R3, difficulty: 'M', examType: 'MTE'},
+  ]
+}

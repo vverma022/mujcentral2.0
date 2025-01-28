@@ -1,13 +1,13 @@
 import { PastYearPapers } from "@/components/papers/filters";
 import Nothingyet from "@/components/shared/nothingyet";
 import { cycles, majors } from "@/config/papers";
-import { firstYearPapers , secondYearPapers} from "@/config/papers";
+import { firstYearPapers , secondYearPapers , thirdYearPapers} from "@/config/papers";
 
 // Map data for each year
 const yearToDataMap: Record<string, any> = {
   "first-year": { categories: cycles, papers: firstYearPapers, year: "First Year" },
   "second-year": { categories: majors, papers: secondYearPapers, year: "Second Year" },
-  "third-year": { categories: cycles, papers: firstYearPapers, year: "Third Year" },
+  "third-year": { categories: majors, papers: thirdYearPapers, year: "Third Year" },
 };
 
 // Define the Params type as a promise
@@ -24,9 +24,9 @@ export default async function YearPage({ params }: { params: Params }) {
     return <div>Page Not Found</div>; // Handle invalid routes
   }
 
-  if (year === "third-year") {
-    return <Nothingyet />;
-  }
+  // if (year === "third-year") {
+  //   return <Nothingyet />;
+  // }
 
   return <PastYearPapers {...data} />;
 }

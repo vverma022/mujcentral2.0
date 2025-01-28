@@ -60,8 +60,7 @@ export function PastYearPapers({ categories , papers , year }: PastYearPapersPro
       </div>
     </div>
     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {papers[selectedCycle]
-        .filter((paper) => paper.examType === selectedExamType) // Filter papers by exam type
+      {papers[selectedCycle]?.filter((paper) => paper.examType === selectedExamType) // Filter papers by exam type
         .map((paper) => (
           <RectangularPaperCard
             key={paper.id}
@@ -72,7 +71,10 @@ export function PastYearPapers({ categories , papers , year }: PastYearPapersPro
             difficulty={paper.difficulty || 'E'}
             examType={paper.examType || 'MTE'}
           />
-        ))}
+        )) || (
+          <p className=" mt-7 font-heading ">No Papers Avaliable</p>
+        )
+        }
     </div>
   </div>
   </MaxWidthWrapper>
