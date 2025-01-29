@@ -229,5 +229,8 @@ export const thirdYearPapers: Record<string, Paper[]> = {
     {id: 4, title:'ACD',name:"Automata",link:'https://drive.google.com/file/d/1ER9715C47XCure7e72ciPByIupeXjUPv/view?usp=share_link',image: R4,difficulty: 'H', examType: 'ETE'},
     {id: 4, title:'ACD',name:"Automata",link:'https://drive.google.com/file/d/1u192CM01wfn8_uR3Wc80O2Hj-6Qy2qyK/view?usp=share_link',image: R3,difficulty: 'M', examType: 'MTE'}
 
+  ],
+  'CSE-C': [
+    {id: 1, title: 'DSML', name: "Data Science Machine Learning", link: 'https://drive.google.com/file/d/1yldpe_SZnKM7GrsIyQ4bAGeVpOyQmor4/view?usp=share_link', image: R1, difficulty: 'M', examType: 'ETE'},
   ]
 }
