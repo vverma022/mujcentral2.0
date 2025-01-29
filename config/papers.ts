@@ -3,6 +3,8 @@ import R2 from "../public/_static/illustrations/ETE.svg"
 import R3 from "../public/_static/illustrations/rocket-crashed.svg"
 import R4 from "../public/_static/illustrations/call-waiting.svg"
 import { Paper } from "@/types"
+import { link } from "fs"
+import { difference } from "next/dist/build/utils"
 
 export const cycles = ['Physics','Chemistry'];
 export const majors = ['CSE-C','CCE','IT','AI-ML','IoT']
@@ -219,5 +221,13 @@ export const thirdYearPapers: Record<string, Paper[]> = {
     {id: 1, title: 'AIML', name: "Artificial Intelligence and Machine Learning", link: 'https://drive.google.com/file/d/1eFXR7UiIDaBoBZtNErlzMVHamcFa_8U_/view?usp=share_link', image: R1, difficulty: 'M', examType: 'MTE'},
     {id: 2, title: 'ATCD', name: "Automata and Compiler Design", link: 'https://drive.google.com/file/d/1LW7ZeivpBDKjoyNotcVxQmbxfEVVvq_O/view?usp=share_link', image: R2, difficulty: 'M', examType: 'MTE'},
     {id: 3, title: 'ATCD', name: "Automata and Compiler Design", link: 'https://drive.google.com/file/d/1W0fSY1aqZ8pEfr1ByKwZYDAUSc34G6oO/view?usp=share_link', image: R3, difficulty: 'M', examType: 'MTE'},
+  ],
+  'IT': [
+    {id: 1, title: 'CIS', name: "Cryptography", link: 'https://drive.google.com/file/d/13n2wtxgUo2636Z71-_1OxEOfH82guw5L/view?usp=share_link', image: R1, difficulty: 'M', examType: 'MTE'},
+    {id: 2, title: 'CIS', name: "Cryptography", link: 'https://drive.google.com/file/d/19rCZ4c854oSWomLsK9UC4R91aSdumnOE/view?usp=share_link', image: R2, difficulty: 'H', examType: 'ETE'},
+    {id: 3, title: 'AIML',name: "Artificial Intelligence and Machine Learning", link: 'https://drive.google.com/file/d/1ERWq0fF7wNaP930lACAE8fybixD1w4B6/view?usp=share_link', image: R1, difficulty: 'M', examType: 'ETE'},
+    {id: 4, title:'ACD',name:"Automata",link:'https://drive.google.com/file/d/1ER9715C47XCure7e72ciPByIupeXjUPv/view?usp=share_link',image: R4,difficulty: 'H', examType: 'ETE'},
+    {id: 4, title:'ACD',name:"Automata",link:'https://drive.google.com/file/d/1u192CM01wfn8_uR3Wc80O2Hj-6Qy2qyK/view?usp=share_link',image: R3,difficulty: 'M', examType: 'MTE'}
+
   ]
 }
