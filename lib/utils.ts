@@ -24,7 +24,7 @@ export function constructMetadata({
   noIndex?: boolean;
 } = {}): Metadata {
   return {
-    title,
+    title: "MUJ CENTRAL 2.0",
     description,
     keywords: [
       "MUJ",
@@ -45,7 +45,7 @@ export function constructMetadata({
       url: "https://mujcentral2-0.vercel.app/site.webmanifest", // Replace with your actual URL
       title,
       description,
-      siteName: "MUJ-CENTRAL-2.0",
+      siteName: "MUJ CENTRAL 2.0",
       images: [image], // Ensure Open Graph image is set here
     },
     twitter: {

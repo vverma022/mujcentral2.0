@@ -7,7 +7,6 @@ import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from "@/components/analytics";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import CookieConsentBanner from "@/components/shared/cookie-consent";
-import Head from "next/head"; // Import next/head for injecting metadata
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -19,6 +18,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+      <title>MUJ CENTRAL 2.0</title>
         {/* Inject Open Graph Meta Tags */}
         <meta property="og:title" content={metadata.title?.toString() ?? ''} />
         <meta property="og:description" content={metadata.description?.toString() ?? ''} />
