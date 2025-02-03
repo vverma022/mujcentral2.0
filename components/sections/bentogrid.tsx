@@ -29,7 +29,7 @@ export default function BentoGrid() {
                   />
                 </svg>
                 <span className="text-gradient_indigo-purple mx-auto block w-fit font-heading text-5xl">
-                  20+
+                  40+
                 </span>
               </div>
               <h2 className="mt-6 text-center font-heading text-3xl md:text-4xl lg:text-[40px]">

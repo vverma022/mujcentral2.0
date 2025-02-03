@@ -227,7 +227,7 @@ export const thirdYearPapers: Record<string, Paper[]> = {
     {id: 2, title: 'CIS', name: "Cryptography", link: 'https://drive.google.com/file/d/19rCZ4c854oSWomLsK9UC4R91aSdumnOE/view?usp=share_link', image: R2, difficulty: 'H', examType: 'ETE'},
     {id: 3, title: 'AIML',name: "Artificial Intelligence and Machine Learning", link: 'https://drive.google.com/file/d/1ERWq0fF7wNaP930lACAE8fybixD1w4B6/view?usp=share_link', image: R1, difficulty: 'M', examType: 'ETE'},
     {id: 4, title:'ACD',name:"Automata",link:'https://drive.google.com/file/d/1ER9715C47XCure7e72ciPByIupeXjUPv/view?usp=share_link',image: R4,difficulty: 'H', examType: 'ETE'},
-    {id: 4, title:'ACD',name:"Automata",link:'https://drive.google.com/file/d/1u192CM01wfn8_uR3Wc80O2Hj-6Qy2qyK/view?usp=share_link',image: R3,difficulty: 'M', examType: 'MTE'}
+    {id: 5, title:'ACD',name:"Automata",link:'https://drive.google.com/file/d/1u192CM01wfn8_uR3Wc80O2Hj-6Qy2qyK/view?usp=share_link',image: R3,difficulty: 'M', examType: 'MTE'}
 
   ],
   'CSE-C': [
