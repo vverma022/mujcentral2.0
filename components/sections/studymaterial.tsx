@@ -17,7 +17,7 @@ export default function StudyMaterial() {
             subtitle="Access to the best study material to prepare for your exams. Sourced from the community."
           />
 
-          <div className="mt-12 items-center grid gap-3 sm:grid-cols-2 lg:grid-cols-2">
+          <div className="mt-12 grid items-center gap-3 sm:grid-cols-2 lg:grid-cols-2">
             {studymaterial.map((studymaterial) => {
               const Icon = Icons[studymaterial.icon || "nextjs"];
               return (
