@@ -5,6 +5,7 @@ import HeroLanding from "@/components/sections/hero-landing";
 import Powered from "@/components/sections/powered";
 import PreviewLanding from "@/components/sections/preview-landing";
 import { InfiniteMovingCardsDemo } from "@/components/sections/contributors";
+import StudyMaterial from "@/components/sections/studymaterial";
 
 export default async function IndexPage() {
   return (
@@ -15,6 +16,7 @@ export default async function IndexPage() {
       <BentoGrid />
       {/* <InfoLanding data={infos[1]} /> */}
       <Features />
+      <StudyMaterial />
       <InfiniteMovingCardsDemo />
       {/* <Testimonials /> */}
     </>

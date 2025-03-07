@@ -95,6 +95,14 @@ export type FeatureLdg = {
   icon: keyof typeof Icons;
 };
 
+export type StudyMaterial = {
+  id: number;
+  title: string;
+  description: string;
+  link: string;
+  icon: keyof typeof Icons;
+}
+
 export type TestimonialType = {
   name: string;
   job: string;

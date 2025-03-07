@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from "@/components/analytics";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import CookieConsentBanner from "@/components/shared/cookie-consent";
+import FeaturePopup from "@/components/announcements/studymaterial";
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           disableTransitionOnChange
         >
           <CookieConsentBanner />
+          <FeaturePopup />
           {children}
           <SpeedInsights />
           <Analytics />

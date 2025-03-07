@@ -1,4 +1,4 @@
-import { FeatureLdg, InfoLdg } from "types";
+import { FeatureLdg, InfoLdg, StudyMaterial } from "types";
 
 export const infos: InfoLdg[] = [
   {
@@ -53,4 +53,25 @@ export const features: FeatureLdg[] = [
     icon: "college",
   },
 ];
+
+export const studymaterial: StudyMaterial[] = [
+  {
+    id: 1,
+    title: "Physics Cycle",
+    description:
+      "Get access to the best study material for the Physics Cycle to prepare for your exams. Sourced from the community.",
+    link: "https://drive.google.com/drive/folders/1ps5av4ULgJvsRMZotn2zT0hP_tM2nEpc?usp=sharing",
+    icon: "sun",
+  },
+  {
+    id: 2,
+    title: "Chemistry Cycle",
+    description:
+      "Get access to the best study material for the Chemistry Cycle to prepare for your exams. Sourced from the community.",
+    link: "https://drive.google.com/drive/folders/1PKYD8BtLx9eVL6KPdy3LxnQN8e0IWgRT?usp=sharing",
+    icon: "laptop",
+  },
+];
+
+
 
