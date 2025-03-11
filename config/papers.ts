@@ -223,6 +223,8 @@ export const thirdYearPapers: Record<string, Paper[]> = {
     {id: 3, title: 'ATCD', name: "Automata and Compiler Design", link: 'https://drive.google.com/file/d/1W0fSY1aqZ8pEfr1ByKwZYDAUSc34G6oO/view?usp=share_link', image: R3, difficulty: 'M', examType: 'MTE'},
     {id: 4, title: 'AIML', name: "Artificial Intelligence and Machine Learning",link: "https://drive.google.com/file/d/1O3mWTyeHWGgDRPxa8z8vFT7QD2sYZZwj/view?usp=share_link", image: R1, difficulty: 'M', examType: 'ETE'},
     {id: 5, title: 'WC', name: "Wireless Communication", link: 'https://drive.google.com/file/d/1f6OsjWC3YbkluDXtq7ID4VxpYVeEBS4t/view?usp=share_link', image: R2, difficulty: 'H', examType: 'ETE'},
+    {id: 6, title: 'WC', name: "Wireless Communication", link: 'https://drive.google.com/file/d/1ZG58yrbwHxr9sgre8Ow7L98Ugm6vDJ8I/view?usp=share_link', image: R1, difficulty: 'H', examType: 'MTE'},
+
   ],
   'IT': [
     {id: 1, title: 'CIS', name: "Cryptography", link: 'https://drive.google.com/file/d/13n2wtxgUo2636Z71-_1OxEOfH82guw5L/view?usp=share_link', image: R1, difficulty: 'M', examType: 'MTE'},
