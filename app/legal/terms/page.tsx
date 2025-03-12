@@ -35,7 +35,10 @@ export default function TermsPage() {
         <h2 className="bold mb-4 font-heading text-2xl">Disclaimer</h2>
         <p>
           We are not responsible for any harm, loss, or damage resulting from your use of the platform. Use the platform
-          at your own risk.
+          at your own risk. 
+        </p>
+        <p>
+          Thats definitely what Pihu said 
         </p>
       </section>
 
