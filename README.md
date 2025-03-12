@@ -55,8 +55,8 @@ npm run dev
 ## Roadmap
 - [ ] Add support for Assingments
 - [ ] Add paid solutions to papers
-- [ ] Add email support to contact us
-- [ ] Limit user intractivity in confessions and unimates 
+- [X] Add email support to contact us
+- [X] Limit user intractivity in confessions and unimates 
 
 ### Frameworks
 
