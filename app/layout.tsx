@@ -22,6 +22,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <title>MUJ CENTRAL 2.0</title>
         {/* Inject Open Graph Meta Tags */}
         <meta property="og:title" content={metadata.title?.toString() ?? ''} />
+        <meta name="google-adsense-account" content="ca-pub-3291638464944651"></meta>
         <meta property="og:description" content={metadata.description?.toString() ?? ''} />
         <meta property="og:image" content={metadata.openGraph?.images?.[0]?.toString() ?? ''} />
         {metadata.openGraph && (

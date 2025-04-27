@@ -17,7 +17,7 @@ export default function FeaturePopup() {
     if (!hasSeenPopup) {
       const timer = setTimeout(() => {
         setIsOpen(true)
-      }, 5000)
+      }, 20)
 
       return () => clearTimeout(timer)
     }
