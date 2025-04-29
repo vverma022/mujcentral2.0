@@ -21,8 +21,8 @@ export const footerLinks: SidebarNavItem[] = [
     title: "MUJ Central 2.0",
     items: [
       { title: "About", href: "/legal/about" },
-      { title: "Terms", href: "legal/terms" },
-      { title: "Privacy", href: "legal/privacy" },
+      { title: "Terms", href: "/legal/terms" },
+      { title: "Privacy", href: "/legal/privacy" },
     ],
   }
 ];

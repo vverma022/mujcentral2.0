@@ -18,13 +18,13 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
             <span className="font-urban text-xl font-bold">MUJ Central 2.0</span>
           </div>
           <nav className="flex flex-wrap justify-center space-x-6 md:justify-end">
-            <Link href="legal/about" className="text-sm text-muted-foreground">
+            <Link href="/legal/about" className="text-sm text-muted-foreground">
               About Us
             </Link>
-            <Link href="legal/terms" className="text-sm text-muted-foreground">
+            <Link href="/legal/terms" className="text-sm text-muted-foreground">
               Terms
             </Link>
-            <Link href="legal/privacy" className="text-sm text-muted-foreground">
+            <Link href="/legal/privacy" className="text-sm text-muted-foreground">
               Privacy
             </Link>
               <ContactButton />

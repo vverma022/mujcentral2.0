@@ -19,6 +19,8 @@
     "lint:fix": "eslint . --fix",
     "preview": "next build && next start",
     "postinstall": "prisma generate",
+    "db:push": "prisma db push",
+    "db:generate": "prisma generate",
     "email": "email dev --dir emails --port 3333"
   },
   "dependencies": {
