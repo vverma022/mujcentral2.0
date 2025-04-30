@@ -7,7 +7,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from "@/components/analytics";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import CookieConsentBanner from "@/components/shared/cookie-consent";
-import FeaturePopup from "@/components/announcements/studymaterial";
+import { ClerkProvider } from "@clerk/nextjs";
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -17,10 +17,10 @@ export const metadata = constructMetadata(); // Generate metadata
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
+    <ClerkProvider>
     <html lang="en" suppressHydrationWarning>
       <head>
       <title>MUJ CENTRAL 2.0</title>
-        {/* Inject Open Graph Meta Tags */}
         <meta property="og:title" content={metadata.title?.toString() ?? ''} />
         <meta name="google-adsense-account" content="ca-pub-3291638464944651"></meta>
         <meta property="og:description" content={metadata.description?.toString() ?? ''} />
@@ -58,7 +58,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
           disableTransitionOnChange
         >
           <CookieConsentBanner />
-          <FeaturePopup />
           {children}
           <SpeedInsights />
           <Analytics />
@@ -67,5 +66,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </ThemeProvider>
       </body>
     </html>
+    </ClerkProvider>
   );
 }
